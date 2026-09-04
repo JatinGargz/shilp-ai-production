@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHILP AI (शिल्प) — Universal E-Commerce & Virtual Business Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Rozha+One&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clay: {
+                            50: '#fdf8f5',
+                            100: '#faefe9',
+                            200: '#f6dfd3',
+                            500: '#d95327',
+                            600: '#c54218',
+                            700: '#a33310',
+                            800: '#842c12',
+                            900: '#6c2813',
+                        },
+                        sand: {
+                            50: '#faf8f5',
+                            100: '#f4f0e8',
+                            200: '#eae4d6',
+                            300: '#dcd3be',
+                            400: '#cbbfa4',
+                            500: '#b4a587',
+                        },
+                        amazon: {
+                            orange: '#FF9900',
+                            dark: '#131921',
+                            lightDark: '#232F3E',
+                            blue: '#007185'
+                        },
+                        paytm: {
+                            blue: '#002970',
+                            cyan: '#00b9f5'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
+            background-color: #f7f4ee;
+            color: #292524;
+        }
+        .font-heritage { font-family: 'Rozha One', serif; }
+        
+        /* Modern Ergonomic Phone Frame */
+        .phone-frame {
+            width: 412px;
+            height: 840px;
+            background: #ffffff;
+            border: 12px solid #1c1917;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px -15px rgba(67, 30, 15, 0.25), 0 0 0 1px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        .dynamic-island {
+            width: 110px;
+            height: 24px;
+            background-color: #1c1917;
+            border-radius: 20px;
+            margin: 0 auto;
+        }
+        
+        /* Smooth Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.03);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(217, 83, 39, 0.25);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(217, 83, 39, 0.45);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Micro-Animations */
+        @keyframes soft-pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+        .animate-soft-pulse { animation: soft-pulse 2s infinite ease-in-out; }
+        
+        @keyframes mic-ring {
+            0% { box-shadow: 0 0 0 0 rgba(217, 83, 39, 0.5); }
+            70% { box-shadow: 0 0 0 16px rgba(217, 83, 39, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(217, 83, 39, 0); }
+        }
+        .mic-recording { animation: mic-ring 1.3s infinite; }
+
+        .wave-bar {
+            width: 3px;
+            background: #d95327;
+            border-radius: 3px;
+            animation: wave 0.9s ease-in-out infinite alternate;
+        }
+        @keyframes wave {
+            0% { height: 6px; }
+            100% { height: 24px; }
+        }
+        .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+        .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+        .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+        .wave-bar:nth-child(5) { animation-delay: 0.2s; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-clay-500 selection:text-white">
+
+    <!-- ======================================================================= -->
+    <!-- TOP NAVIGATION BAR (Sleek, Comfy, Intuitive)                           -->
+    <!-- ======================================================================= -->
+    <header class="bg-stone-900 text-stone-100 px-6 py-2.5 shadow-md sticky top-0 z-50 border-b border-stone-800">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-4">
+            
+            <!-- Brand & Tagline -->
+            <div class="flex items-center space-x-3.5">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-clay-600 via-amber-600 to-yellow-500 flex items-center justify-center font-heritage text-white text-xl shadow-lg border border-amber-300/30">
+                    श
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <h1 class="text-sm font-black tracking-wide text-amber-300">
+                            SHILP AI <span class="text-stone-300 font-light ml-0.5">| शिल्प</span>
+                        </h1>
+                        <span class="text-[10px] font-bold bg-clay-950 text-amber-300 border border-amber-500/40 px-2 py-0.5 rounded-full shadow-inner">
+                            Universal 5-Channel E-Commerce
+                        </span>
+                    </div>
+                    <p class="text-[11px] text-stone-400">MoSJE &bull; PM Vishwakarma Virtual Business Manager &bull; SIH 26090</p>
+                </div>
+            </div>
+
+            <!-- View Switcher Pills -->
+            <div class="flex bg-stone-950/90 p-1 rounded-2xl border border-stone-800 space-x-1 shadow-inner text-xs">
+                <button onclick="switchMasterView('mobile')" id="btnViewMobile" class="px-3 py-1.5 font-bold rounded-xl text-stone-400 hover:text-white transition">
+                    <i class="fas fa-mobile-alt mr-1 text-amber-400"></i> Artisan Mobile
+                </button>
+                <button onclick="switchMasterView('storefront')" id="btnViewStorefront" class="px-3 py-1.5 font-bold rounded-xl text-stone-400 hover:text-white transition">
+                    <i class="fas fa-shopping-bag mr-1 text-cyan-400"></i> ONDC Store (Paytm)
+                </button>
+                <button onclick="switchMasterView('amazon')" id="btnViewAmazon" class="px-3 py-1.5 font-bold rounded-xl text-stone-400 hover:text-white transition">
+                    <i class="fab fa-amazon mr-1 text-amazon-orange"></i> Amazon Karigar
+                </button>
+                <button onclick="switchMasterView('admin')" id="btnViewAdmin" class="px-3 py-1.5 font-bold rounded-xl text-stone-400 hover:text-white transition">
+                    <i class="fas fa-landmark mr-1 text-emerald-400"></i> MoSJE Portal
+                </button>
+                <button onclick="switchMasterView('split')" id="btnViewSplit" class="px-3 py-1.5 font-bold rounded-xl bg-gradient-to-r from-clay-600 to-amber-600 text-white shadow-md transition">
+                    <i class="fas fa-columns mr-1"></i> Dual Live Booth
+                </button>
+            </div>
+
+            <!-- Quick Helper / SP-API Inspector Button -->
+            <div class="hidden lg:flex items-center space-x-2">
+                <button onclick="openSpApiModal()" class="bg-stone-800 hover:bg-stone-700 text-amber-300 text-xs font-semibold px-3 py-1.5 rounded-xl border border-amber-500/30 flex items-center space-x-1.5 shadow-sm transition">
+                    <i class="fas fa-code text-[11px]"></i>
+                    <span>Inspect Amazon SP-API</span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ======================================================================= -->
+    <!-- MAIN WORKSPACE                                                          -->
+    <!-- ======================================================================= -->
+    <main class="flex-1 p-6 flex justify-center items-start overflow-auto">
+        <div id="masterWrapper" class="w-full max-w-7xl flex gap-8 justify-center items-start">
+
+            <!-- =================================================================== -->
+            <!-- 1. ARTISAN MOBILE PWA (PHONE SIMULATOR)                             -->
+            <!-- =================================================================== -->
+            <div id="mobileSection" class="flex flex-col items-center relative">
+                
+                <div class="flex items-center space-x-2 mb-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-stone-600">
+                        Artisan Mobile Phone Simulator (PWA)
+                    </span>
+                </div>
+
+                <div class="phone-frame flex flex-col justify-between relative">
+                    
+                    <!-- Top Phone Status Bar -->
+                    <div class="bg-stone-900 text-white pt-1.5 px-6 pb-1 flex justify-between items-center text-[11px] select-none">
+                        <span class="font-bold">09:41</span>
+                        <div class="dynamic-island flex items-center justify-center space-x-1">
+                            <span class="w-2 h-2 rounded-full bg-stone-700"></span>
+                            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                        </div>
+                        <div class="flex items-center space-x-1.5 text-stone-300 text-[10px]">
+                            <i class="fas fa-signal"></i>
+                            <span class="font-bold text-[9px]">5G</span>
+                            <i class="fas fa-battery-full text-xs text-emerald-400"></i>
+                        </div>
+                    </div>
+
+                    <!-- Artisan Identity Header Card -->
+                    <div class="bg-gradient-to-r from-stone-900 via-clay-900 to-stone-900 text-white px-4 py-2.5 border-b border-amber-900/40 flex justify-between items-center shadow-md">
+                        <div class="flex items-center space-x-2.5">
+                            <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-amber-500 to-clay-600 flex items-center justify-center font-bold text-white text-xs shadow-md border border-amber-300/40">
+                                RV
+                            </div>
+                            <div class="text-left">
+                                <div class="flex items-center space-x-1.5">
+                                    <h3 id="artisanGreeting" class="text-xs font-bold leading-none">नमस्ते, रामप्रसाद जी</h3>
+                                    <i class="fas fa-check-circle text-emerald-400 text-[10px]"></i>
+                                </div>
+                                <p id="artisanSubtext" class="text-[9px] text-amber-200/80 mt-0.5">PM-UP-4210 &bull; मास्टर बुनकर (Varanasi)</p>
+                            </div>
+                        </div>
+                        <button onclick="toggleAppLanguage()" class="bg-stone-800/90 hover:bg-stone-700 text-amber-300 border border-amber-500/40 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm flex items-center space-x-1 active:scale-95 transition">
+                            <i class="fas fa-globe text-amber-400 text-xs"></i>
+                            <span id="langBtnText">हिंदी / Eng</span>
+                        </button>
+                    </div>
+
+                    <!-- Live Order Notification Toast -->
+                    <div id="artisanOrderToast" class="hidden absolute top-20 left-4 right-4 bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-3 rounded-2xl shadow-2xl z-40 flex items-center space-x-3 animate-bounce">
+                        <div class="w-8 h-8 rounded-full bg-white text-emerald-700 flex items-center justify-center text-sm font-black flex-shrink-0 shadow">
+                            ₹
+                        </div>
+                        <div class="flex-1 text-left">
+                            <p class="text-[10px] font-black uppercase tracking-wider text-emerald-100">नया ई-कॉमर्स ऑर्डर प्राप्त हुआ!</p>
+                            <p id="toastOrderText" class="text-xs font-bold leading-tight mt-0.5">₹ 2,900 &bull; भुगतान सफल via UPI</p>
+                        </div>
+                        <button onclick="document.getElementById('artisanOrderToast').classList.add('hidden')" class="text-white text-xs opacity-75 hover:opacity-100">
+                            ✕
+                        </button>
+                    </div>
+
+                    <!-- ======================================================= -->
+                    <!-- TAB 1: STUDIO / FAST CATALOG (Home)                     -->
+                    <!-- ======================================================= -->
+                    <div id="tabContentHome" class="flex-1 overflow-y-auto p-4 space-y-3.5 hide-scrollbar bg-[#fdfbf7]">
+                        
+                        <!-- Livelihood Scheme Pill -->
+                        <div class="bg-amber-50/80 border border-amber-200/80 rounded-2xl p-2.5 flex items-center justify-between shadow-sm">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-6 h-6 rounded-lg bg-clay-600 text-white flex items-center justify-center text-xs shadow-sm">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="text-left">
+                                    <p id="labelGovScheme" class="text-[10px] font-extrabold text-stone-800">MoSJE Certified Artisan Partner</p>
+                                    <p class="text-[8px] text-stone-500">Universal Direct Payout to Artisan Bank Account</p>
+                                </div>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-800 text-[8px] font-black px-2 py-0.5 rounded-full border border-emerald-300">
+                                0% Cut
+                            </span>
+                        </div>
+
+                        <!-- 🌟 1-TAP CRAFT PRESETS (COMFY & EASY TO USE) -->
+                        <div class="space-y-1.5 text-left">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[10px] font-extrabold uppercase tracking-wider text-stone-500">
+                                    ⚡ 1-Tap Craft Presets (एक क्लिक में चुनें):
+                                </span>
+                                <span class="text-[9px] text-clay-600 font-bold">Auto-Fills Details</span>
+                            </div>
+                            <div class="grid grid-cols-3 gap-1.5 text-[10px]">
+                                <button onclick="applyPreset('textiles')" class="bg-white border border-amber-200/80 hover:border-clay-500 p-2 rounded-xl text-left shadow-sm hover:shadow transition flex flex-col space-y-0.5 active:scale-95">
+                                    <span class="font-bold text-stone-900 truncate">🧵 Banarasi Silk</span>
+                                    <span class="text-[8px] text-stone-500">₹350 raw • 16 hrs</span>
+                                </button>
+                                <button onclick="applyPreset('pottery')" class="bg-white border border-amber-200/80 hover:border-clay-500 p-2 rounded-xl text-left shadow-sm hover:shadow transition flex flex-col space-y-0.5 active:scale-95">
+                                    <span class="font-bold text-stone-900 truncate">🏺 Blue Pottery</span>
+                                    <span class="text-[8px] text-stone-500">₹250 raw • 12 hrs</span>
+                                </button>
+                                <button onclick="applyPreset('metalwork')" class="bg-white border border-amber-200/80 hover:border-clay-500 p-2 rounded-xl text-left shadow-sm hover:shadow transition flex flex-col space-y-0.5 active:scale-95">
+                                    <span class="font-bold text-stone-900 truncate">🪙 Bastar Dokra</span>
+                                    <span class="text-[8px] text-stone-500">₹180 raw • 6 hrs</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 📸 1. PHOTO CAPTURE CARD -->
+                        <div class="bg-white border border-stone-200/90 rounded-3xl p-3.5 space-y-2.5 shadow-sm text-left">
+                            <div class="flex justify-between items-center">
+                                <label class="text-xs font-bold text-stone-800 flex items-center">
+                                    <i class="fas fa-camera text-clay-600 mr-1.5"></i>
+                                    <span id="labelStep1">Step 1: Product Photo (शिल्प का फोटो लें)</span>
+                                </label>
+                                <span id="photoBadge" class="text-[9px] font-bold text-stone-400 bg-stone-100 px-2.5 py-0.5 rounded-full">
+                                    No photo
+                                </span>
+                            </div>
+
+                            <!-- Camera Viewport -->
+                            <div id="cameraBox" class="relative bg-stone-900 rounded-2xl h-44 overflow-hidden flex items-center justify-center border border-stone-200 shadow-inner">
+                                <video id="webcamVideo" autoplay playsinline class="hidden w-full h-full object-cover"></video>
+                                <canvas id="photoCanvas" class="hidden"></canvas>
+                                <img id="capturedPhotoImg" src="" class="hidden w-full h-full object-contain p-1 bg-stone-900" />
+
+                                <div id="cameraPlaceholder" class="text-center text-stone-400 p-4 space-y-1.5">
+                                    <div class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center mx-auto text-amber-400 shadow">
+                                        <i class="fas fa-camera text-lg"></i>
+                                    </div>
+                                    <p id="labelCameraPrompt" class="text-[11px] text-stone-300 font-medium">Open live camera or upload photo</p>
+                                    <p class="text-[8.5px] text-stone-500">AI automatically removes background & adds Golden MoSJE Seal</p>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="startLiveCamera()" id="btnStartCam" class="bg-stone-900 hover:bg-stone-800 text-white font-bold py-2 px-3 rounded-xl text-[11px] flex items-center justify-center space-x-1.5 shadow active:scale-95 transition">
+                                    <i class="fas fa-video text-amber-400"></i>
+                                    <span id="btnTextOpenCam">Open Camera</span>
+                                </button>
+                                <button onclick="triggerFileInput()" id="btnUploadPhoto" class="bg-stone-100 hover:bg-stone-200 text-stone-800 font-bold py-2 px-3 rounded-xl text-[11px] flex items-center justify-center space-x-1.5 border border-stone-300 active:scale-95 transition">
+                                    <i class="fas fa-upload text-clay-600"></i>
+                                    <span id="btnTextUploadPhoto">Upload Photo</span>
+                                </button>
+                                <input type="file" id="craftFileInput" accept="image/*" class="hidden" onchange="handleFileUpload(event)" />
+                            </div>
+
+                            <div id="shutterRow" class="hidden bg-stone-100 rounded-2xl p-2 flex items-center justify-between border border-stone-200">
+                                <button onclick="stopLiveCamera()" class="text-xs text-stone-500 hover:text-stone-800 px-3 py-1 font-bold">Cancel</button>
+                                <button onclick="captureCameraPhoto()" class="w-10 h-10 bg-red-600 border-2 border-white rounded-full shadow-lg hover:scale-105 active:scale-95 transition flex items-center justify-center text-white text-xs">
+                                    <i class="fas fa-circle text-xs"></i>
+                                </button>
+                                <span class="text-[9px] font-bold text-red-600 animate-pulse">● LIVE VIEW</span>
+                            </div>
+
+                            <div id="retakeRow" class="hidden flex justify-between items-center pt-0.5 text-[9px]">
+                                <span class="text-emerald-700 font-bold"><i class="fas fa-check-circle mr-1"></i> Ready for Studio AI</span>
+                                <button onclick="resetCameraPhoto()" class="text-stone-500 hover:text-red-600 underline font-semibold">Retake</button>
+                            </div>
+                        </div>
+
+                        <!-- 🎙️ 2. VOICE STORY CARD -->
+                        <div class="bg-white border border-stone-200/90 rounded-3xl p-3.5 space-y-2.5 shadow-sm text-left">
+                            <div class="flex justify-between items-center">
+                                <label class="text-xs font-bold text-stone-800 flex items-center">
+                                    <i class="fas fa-microphone text-clay-600 mr-1.5"></i>
+                                    <span id="labelStep2">Step 2: Voice Story (अपनी बोली में बताएं)</span>
+                                </label>
+                                <span id="voiceBadge" class="text-[9px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">
+                                    Hindi / English
+                                </span>
+                            </div>
+
+                            <div id="transcriptBox" class="bg-amber-50/40 border border-amber-100 rounded-2xl p-2.5 min-h-[52px] text-[11px] text-stone-800 flex flex-col justify-center">
+                                <div id="waveAnim" class="hidden items-center space-x-1 mb-1">
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="text-[9px] font-bold text-clay-600 ml-1.5">Sun rahe hain... (Listening...)</span>
+                                </div>
+                                <span id="transcriptText" class="italic text-stone-600">"Tap mic and speak details (e.g. Banarasi Silk Saree, 2 din lage, 350 rupaye ka kacha mal)"</span>
+                            </div>
+
+                            <div class="text-center py-0.5">
+                                <button onclick="toggleVoiceRecording()" id="voiceRecordBtn" class="w-14 h-14 bg-gradient-to-tr from-clay-600 to-amber-500 rounded-full text-white shadow-md hover:scale-105 active:scale-95 transition flex items-center justify-center mx-auto focus:ring-4 focus:ring-orange-200">
+                                    <i id="voiceMicIcon" class="fas fa-microphone text-xl"></i>
+                                </button>
+                                <p id="voiceRecordStatus" class="text-[10px] text-stone-500 font-bold mt-1.5">Tap to Speak (माइक दबाकर बोलें)</p>
+                            </div>
+                        </div>
+
+                        <!-- 🚀 3. MASTER SUBMIT BUTTON -->
+                        <button onclick="submitToShilpAI()" id="btnGenerateCatalog" class="w-full bg-gradient-to-r from-clay-600 via-amber-600 to-clay-600 hover:from-clay-700 hover:to-clay-700 text-white font-black py-3 rounded-2xl text-xs shadow-lg flex items-center justify-center space-x-2 active:scale-98 transition">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                            <span id="btnTextGenerate">Create AI Studio & Multi-Channel Feeds</span>
+                        </button>
+
+                        <!-- Loading State -->
+                        <div id="loadingBox" class="hidden bg-stone-900 text-white p-4 rounded-3xl space-y-2 text-center shadow-xl">
+                            <div class="w-8 h-8 border-3 border-amber-400 border-t-transparent rounded-full animate-spin mx-auto"></div>
+                            <p class="text-xs font-bold text-amber-300">रिमूवल AI और लार्ज लैंग्वेज मॉडल काम कर रहे हैं...</p>
+                            <p class="text-[9px] text-stone-400">Removing workshop background • Generating ASIN • Synthesizing Hindi Audio</p>
+                        </div>
+
+                        <!-- RESULT CARD (Catalog Generated) -->
+                        <div id="resultCard" class="hidden bg-white border border-stone-200 rounded-3xl p-3.5 space-y-3 shadow-md text-left">
+                            
+                            <!-- Golden MoSJE Studio Canvas -->
+                            <div class="relative bg-stone-100 rounded-2xl overflow-hidden aspect-square border border-stone-200 shadow-inner flex items-center justify-center">
+                                <img id="resEnhancedImg" src="" class="w-full h-full object-contain" />
+                                <div class="absolute top-2 left-2 bg-stone-900/80 backdrop-blur-md text-amber-400 text-[8px] font-extrabold px-2 py-0.5 rounded-md border border-amber-400/40">
+                                    MoSJE 1080p Studio Quality
+                                </div>
+                                <div class="absolute bottom-2 right-2 bg-emerald-700 text-white text-[8px] font-bold px-2 py-0.5 rounded-full shadow">
+                                    Authentic GI Craft
+                                </div>
+                            </div>
+
+                            <!-- Title & Pricing -->
+                            <div>
+                                <h4 id="resTitleEn" class="text-xs font-black text-stone-900 leading-tight">Handcrafted Traditional Banarasi Scarf</h4>
+                                <p id="resTitleHi" class="text-[11px] text-stone-600 font-medium mt-0.5">पारंपरिक हाथ से बुना हुआ बनारसी सिल्क दुपट्टा</p>
+                                
+                                <div class="grid grid-cols-2 gap-2 mt-2 pt-2 border-t border-stone-100">
+                                    <div class="bg-amber-50 p-2 rounded-xl text-left border border-amber-200/60">
+                                        <p class="text-[8px] uppercase tracking-wider font-bold text-stone-500">Retail Price (बाजार मूल्य)</p>
+                                        <p id="resPrice" class="text-sm font-black text-clay-700">₹ 2,900</p>
+                                    </div>
+                                    <div class="bg-emerald-50 p-2 rounded-xl text-left border border-emerald-200/60">
+                                        <p class="text-[8px] uppercase tracking-wider font-bold text-stone-500">GeM Wholesale / B2B</p>
+                                        <p id="resWholesale" class="text-sm font-black text-emerald-800">₹ 2,320 / pc</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Hindi TTS Audio Player -->
+                            <div class="bg-stone-50 p-2 rounded-xl border border-stone-200 flex items-center space-x-2">
+                                <div class="w-6 h-6 rounded-full bg-clay-600 text-white flex items-center justify-center text-[10px]">
+                                    <i class="fas fa-volume-up"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-[8px] font-bold text-stone-600 uppercase">Hindi Audio Confirmation (आवाज़ सुनें):</p>
+                                    <audio id="ttsAudioPlayer" controls class="w-full h-5 scale-95 origin-left"></audio>
+                                </div>
+                            </div>
+
+                            <!-- 5-Marketplace Publisher Drawer -->
+                            <div class="bg-gradient-to-r from-stone-900 to-stone-950 text-white p-3 rounded-2xl space-y-2 shadow-md">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] font-black uppercase tracking-wider text-amber-400">
+                                        🚀 1-Click Multi-Marketplace Sync
+                                    </span>
+                                    <span class="text-[8px] bg-emerald-600 px-2 py-0.5 rounded-full font-bold">5 Channels</span>
+                                </div>
+                                
+                                <div class="grid grid-cols-2 gap-1.5 text-[9px]">
+                                    <div class="bg-stone-800/80 p-1.5 rounded-lg border border-stone-700 flex items-center space-x-1.5">
+                                        <i class="fab fa-amazon text-amber-400 text-xs"></i>
+                                        <div>
+                                            <p class="font-bold text-white">Amazon Karigar</p>
+                                            <p id="badgeAsin" class="text-[8px] text-stone-400">ASIN: B00019K</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-stone-800/80 p-1.5 rounded-lg border border-stone-700 flex items-center space-x-1.5">
+                                        <i class="fas fa-shopping-bag text-blue-400 text-xs"></i>
+                                        <div>
+                                            <p class="font-bold text-white">Flipkart Samarth</p>
+                                            <p id="badgeFsn" class="text-[8px] text-stone-400">FSN: FSN00144</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-stone-800/80 p-1.5 rounded-lg border border-stone-700 flex items-center space-x-1.5">
+                                        <i class="fas fa-globe text-emerald-400 text-xs"></i>
+                                        <div>
+                                            <p class="font-bold text-white">Etsy Global</p>
+                                            <p id="badgeEtsy" class="text-[8px] text-stone-400">Price: $21.76 USD</p>
+                                        </div>
+                                    </div>
+                                    <div class="bg-stone-800/80 p-1.5 rounded-lg border border-stone-700 flex items-center space-x-1.5">
+                                        <i class="fas fa-landmark text-amber-300 text-xs"></i>
+                                        <div>
+                                            <p class="font-bold text-white">GeM Procurement</p>
+                                            <p class="text-[8px] text-stone-400">Rule 149 Mandate</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button onclick="publishToAllFiveChannels()" id="btnMasterPublish" class="w-full bg-gradient-to-r from-clay-600 to-amber-600 hover:from-clay-700 hover:to-amber-700 text-white font-black py-2 rounded-xl text-[11px] shadow transition flex items-center justify-center space-x-1.5">
+                                    <i class="fas fa-share-nodes"></i>
+                                    <span>Publish to All 5 Marketplaces Now</span>
+                                </button>
+                                
+                                <p id="multiSyncStatus" class="hidden text-center text-[8.5px] text-emerald-400 font-bold">
+                                    ✓ Transmitted to Amazon Karigar, Flipkart, GeM, Etsy & ONDC!
+                                </p>
+                            </div>
+
+                            <!-- Offline Mela Standee PDF -->
+                            <div class="pt-1 flex justify-between items-center text-[10px]">
+                                <a id="standeePdfLink" href="#" target="_blank" class="text-clay-600 hover:text-clay-800 font-bold flex items-center">
+                                    <i class="fas fa-file-pdf mr-1 text-red-600"></i>
+                                    <span>Print A4 Mela Standee PDF</span>
+                                </a>
+                                <button onclick="openCustomQrModal()" class="text-stone-600 hover:text-stone-900 font-bold">
+                                    <i class="fas fa-qrcode mr-1"></i> UPI QR
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ======================================================= -->
+                    <!-- TAB 2: MY PRODUCTS & QR LISTINGS                        -->
+                    <!-- ======================================================= -->
+                    <div id="tabContentCatalogs" class="hidden flex-1 overflow-y-auto p-4 space-y-3 hide-scrollbar bg-[#fdfbf7]">
+                        <div class="flex justify-between items-center mb-1">
+                            <h4 class="text-xs font-black text-stone-900">मेरे सक्रिय उत्पाद (My Live Listings)</h4>
+                            <span class="text-[9px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">5 Platforms</span>
+                        </div>
+                        <div id="catalogsListContainer" class="space-y-2 text-left">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- ======================================================= -->
+                    <!-- TAB 3: "सौदा रक्षक" (BARGAINING SHIELD)                 -->
+                    <!-- ======================================================= -->
+                    <div id="tabContentBargain" class="hidden flex-1 overflow-y-auto p-4 space-y-3.5 hide-scrollbar bg-[#fdfbf7]">
+                        <div class="bg-gradient-to-r from-clay-900 to-stone-900 text-white p-3.5 rounded-2xl text-left space-y-1 shadow-md">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-7 h-7 rounded-lg bg-clay-600 flex items-center justify-center text-white text-xs">
+                                    <i class="fas fa-shield-halved"></i>
+                                </div>
+                                <h4 class="text-xs font-black text-amber-300">सौदा रक्षक (Bargaining Shield)</h4>
+                            </div>
+                            <p class="text-[9px] text-stone-300">
+                                जब कोई ग्राहक या विदेशी पर्यटक भारी छूट मांगे, तो यहां ऑफर दर्ज करें। शिल्प AI बताएगा कि सौदा फायदे का है या नुकसान का।
+                            </p>
+                        </div>
+
+                        <div class="bg-white border border-stone-200 rounded-2xl p-3.5 space-y-3 text-left shadow-sm">
+                            <div>
+                                <label class="text-[10px] font-bold text-stone-600">ग्राहक ने क्या दाम ऑफर किया? (Buyer's Offer in ₹):</label>
+                                <input type="number" id="inputOfferPrice" placeholder="उदा. 700" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-3 py-2 text-xs font-bold focus:ring-2 focus:ring-clay-500 mt-1" />
+                            </div>
+
+                            <button onclick="checkBargainShield()" class="w-full bg-clay-600 hover:bg-clay-700 text-white font-bold py-2.5 rounded-xl text-xs shadow transition">
+                                <i class="fas fa-calculator mr-1"></i> Evaluate Offer (सौदा जांचें)
+                            </button>
+
+                            <!-- Evaluation Box -->
+                            <div id="bargainResultBox" class="hidden p-3 rounded-2xl space-y-2 border text-left">
+                                <div class="flex items-center justify-between">
+                                    <span id="bargainVerdictBadge" class="text-[10px] font-black px-2 py-0.5 rounded-full"></span>
+                                    <span id="bargainMarginBadge" class="text-[9px] font-bold text-stone-500"></span>
+                                </div>
+                                <p id="bargainReasonText" class="text-xs font-bold leading-tight"></p>
+                                <div class="bg-white/80 p-2.5 rounded-xl border border-stone-200">
+                                    <p class="text-[8px] font-bold text-stone-500 uppercase">ग्राहक को क्या बोलें (Polite Counter-Offer):</p>
+                                    <p id="bargainCounterText" class="text-xs text-stone-800 font-semibold italic mt-0.5"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================================= -->
+                    <!-- TAB 4: "शिल्प सखी" (SHILPI VOICE COMPANION)             -->
+                    <!-- ======================================================= -->
+                    <div id="tabContentShilpi" class="hidden flex-1 overflow-y-auto p-4 space-y-3.5 hide-scrollbar bg-[#fdfbf7]">
+                        <div class="bg-gradient-to-r from-amber-600 to-clay-600 text-white p-3.5 rounded-2xl text-left space-y-1 shadow-md">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-7 h-7 rounded-lg bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-xs">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h4 class="text-xs font-black">शिल्प सखी (Shilpi Voice Companion)</h4>
+                            </div>
+                            <p class="text-[9px] text-amber-100">
+                                सरकारी योजनाओं, ₹15,000 टूलकिट और ई-कॉमर्स बिक्री के बारे में अपनी बोली में पूछें।
+                            </p>
+                        </div>
+
+                        <!-- Chat Response Box -->
+                        <div id="tabShilpiAnswerBox" class="bg-white p-3.5 rounded-2xl border border-stone-200 text-left space-y-2 min-h-[100px] shadow-sm">
+                            <p id="tabShilpiAnswerText" class="text-xs text-stone-700 leading-relaxed font-medium">
+                                नमस्ते! मैं शिल्प सखी हूँ। सरकारी योजनाओं, सही मूल्य और अमेज़न/ONDC पर बिक्री के बारे में मुझसे पूछें।
+                            </p>
+                            <audio id="tabShilpiAudioPlayer" controls class="hidden w-full h-6 scale-95 origin-left mt-1"></audio>
+                        </div>
+
+                        <!-- Quick Questions -->
+                        <div class="space-y-1.5 text-left">
+                            <p class="text-[9px] font-bold text-stone-400 uppercase tracking-wider">Quick Artisan Questions:</p>
+                            <div class="grid grid-cols-1 gap-1.5 text-[10px]">
+                                <button onclick="askShilpiFast('PM Vishwakarma 15000 toolkit kaise milega?')" class="bg-white border border-stone-200 hover:bg-amber-50 p-2 rounded-xl text-stone-800 text-left font-semibold truncate transition">
+                                    🔹 ₹15,000 टूलकिट प्रोत्साहन कैसे मिलेगा?
+                                </button>
+                                <button onclick="askShilpiFast('Amazon Karigar aur Flipkart par kaise bikega?')" class="bg-white border border-stone-200 hover:bg-amber-50 p-2 rounded-xl text-stone-800 text-left font-semibold truncate transition">
+                                    🔹 अमेज़न कारीगर और फ्लिपकार्ट पर कैसे बिकेगा?
+                                </button>
+                                <button onclick="askShilpiFast('Surajkund mela me free stall kaise book kare?')" class="bg-white border border-stone-200 hover:bg-amber-50 p-2 rounded-xl text-stone-800 text-left font-semibold truncate transition">
+                                    🔹 सूरजकुंड मेले में स्टॉल कैसे बुक करें?
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Custom Input -->
+                        <div class="flex space-x-1.5">
+                            <input type="text" id="tabShilpiCustomInput" placeholder="अपनी बोली में सवाल पूछें..." class="flex-1 bg-white border border-stone-300 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-clay-500" />
+                            <button onclick="askShilpiTabManual()" class="bg-clay-600 hover:bg-clay-700 text-white px-3 py-2 rounded-xl text-xs font-bold transition">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ======================================================= -->
+                    <!-- TAB 5: EARNINGS & ORDERS (LIVE LEDGER)                   -->
+                    <!-- ======================================================= -->
+                    <div id="tabContentOrders" class="hidden flex-1 overflow-y-auto p-4 space-y-3.5 hide-scrollbar bg-[#fdfbf7]">
+                        <div class="bg-gradient-to-r from-emerald-800 to-teal-900 text-white p-4 rounded-2xl text-left space-y-1 shadow-md">
+                            <p class="text-[9px] font-bold text-emerald-200 uppercase tracking-wider">कुल बिक्री (Total UPI Direct Settlements)</p>
+                            <h3 class="text-xl font-black text-emerald-300">₹ 38,450.00</h3>
+                            <p class="text-[8px] text-emerald-100 flex items-center pt-1">
+                                <i class="fas fa-shield-check mr-1 text-emerald-400"></i>
+                                100% Direct to Bank • 0% Middleman Deduction
+                            </p>
+                        </div>
+
+                        <div class="bg-white border border-stone-200 rounded-2xl p-3 text-left space-y-2 shadow-sm">
+                            <div class="flex justify-between items-center border-b border-stone-100 pb-2">
+                                <span class="text-xs font-bold text-stone-800">Recent Marketplace Orders</span>
+                                <span class="text-[9px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">Live Sync</span>
+                            </div>
+                            
+                            <div class="space-y-2 text-xs">
+                                <div class="p-2 bg-stone-50 rounded-xl flex justify-between items-center border border-stone-200">
+                                    <div>
+                                        <p class="font-bold text-stone-900">Banarasi Silk Dupatta</p>
+                                        <p class="text-[9px] text-stone-500">Paytm ONDC &bull; Suman Rao (Mumbai)</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="font-black text-emerald-700">₹ 2,900</span>
+                                        <span class="block text-[8px] font-bold text-emerald-600">PAID VIA UPI</span>
+                                    </div>
+                                </div>
+                                <div class="p-2 bg-stone-50 rounded-xl flex justify-between items-center border border-stone-200">
+                                    <div>
+                                        <p class="font-bold text-stone-900">Jaipur Blue Pottery Vase</p>
+                                        <p class="text-[9px] text-stone-500">Amazon Karigar &bull; ASIN B00019K</p>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="font-black text-emerald-700">₹ 2,030</span>
+                                        <span class="block text-[8px] font-bold text-emerald-600">PAID VIA UPI</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ======================================================= -->
+                    <!-- PHONE BOTTOM NAVIGATION BAR                             -->
+                    <!-- ======================================================= -->
+                    <div class="bg-white border-t border-stone-200 px-3 py-2 flex justify-around items-center text-[10px] text-stone-500 shadow-inner select-none z-30">
+                        <button onclick="switchPhoneTab('home')" id="tabNavHome" class="flex flex-col items-center text-clay-600 font-bold transition">
+                            <i class="fas fa-wand-magic-sparkles text-base mb-0.5"></i>
+                            <span>Studio</span>
+                        </button>
+                        <button onclick="switchPhoneTab('catalogs')" id="tabNavCatalogs" class="flex flex-col items-center hover:text-clay-600 transition">
+                            <i class="fas fa-boxes-stacked text-base mb-0.5"></i>
+                            <span>Listings</span>
+                        </button>
+                        <button onclick="switchPhoneTab('bargain')" id="tabNavBargain" class="flex flex-col items-center hover:text-clay-600 transition">
+                            <i class="fas fa-shield-halved text-base mb-0.5"></i>
+                            <span>Bargain</span>
+                        </button>
+                        <button onclick="switchPhoneTab('shilpi')" id="tabNavShilpi" class="flex flex-col items-center hover:text-clay-600 transition">
+                            <i class="fas fa-headset text-base mb-0.5"></i>
+                            <span>Shilpi AI</span>
+                        </button>
+                        <button onclick="switchPhoneTab('orders')" id="tabNavOrders" class="flex flex-col items-center hover:text-clay-600 transition">
+                            <i class="fas fa-receipt text-base mb-0.5"></i>
+                            <span>Orders</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- =================================================================== -->
+            <!-- 2. ONDC BUYER STOREFRONT (PAYTM MALL PREVIEW)                       -->
+            <!-- =================================================================== -->
+            <div id="storefrontSection" class="flex-1 max-w-lg bg-white rounded-3xl border border-stone-200 shadow-xl overflow-hidden text-left flex flex-col justify-between">
+                <div>
+                    <!-- Paytm / ONDC Header -->
+                    <div class="bg-paytm-blue text-white p-4 flex justify-between items-center border-b border-blue-900">
+                        <div class="flex items-center space-x-2.5">
+                            <div class="w-7 h-7 rounded-lg bg-white text-paytm-blue flex items-center justify-center font-black text-xs shadow">
+                                P
+                            </div>
+                            <div>
+                                <h3 class="font-extrabold text-xs tracking-wide">Paytm ONDC Network</h3>
+                                <p class="text-[9px] text-cyan-300">Open Network for Digital Commerce &bull; Direct Artisan Node</p>
+                            </div>
+                        </div>
+                        <span class="bg-cyan-500/20 text-cyan-300 text-[9px] font-bold px-2 py-0.5 rounded-full border border-cyan-400/30">
+                            Verified Craft
+                        </span>
+                    </div>
+
+                    <!-- Storefront Content -->
+                    <div class="p-5 space-y-4">
+                        <div class="relative rounded-2xl overflow-hidden aspect-video bg-stone-100 border border-stone-200 flex items-center justify-center">
+                            <img id="storefrontImg" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800" class="w-full h-full object-contain p-2" />
+                            <div class="absolute top-2 left-2 bg-emerald-600 text-white text-[9px] font-bold px-2.5 py-0.5 rounded-full shadow">
+                                MoSJE Certified Handloom
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-[10px] font-bold text-blue-600 uppercase tracking-wider">ONDC Beckn Listing</span>
+                            <h2 id="storefrontTitle" class="text-sm font-black text-stone-900 mt-0.5 leading-tight">
+                                Handcrafted Traditional Banarasi Scarf
+                            </h2>
+                            <p class="text-[10px] text-stone-500 mt-0.5">Sold directly by <b>Ramprasad Vishwakarma</b> (Varanasi Cluster)</p>
+                            
+                            <div class="flex items-baseline space-x-2 mt-2">
+                                <span id="storefrontPrice" class="text-xl font-black text-paytm-blue">₹ 2,900</span>
+                                <span class="text-xs text-stone-400 line-through">₹ 4,200</span>
+                                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">31% Off Direct from Weaver</span>
+                            </div>
+
+                            <p id="storefrontStory" class="text-xs text-stone-600 mt-2.5 leading-relaxed bg-stone-50 p-3 rounded-xl border border-stone-200 italic">
+                                "Handwoven with 500-year Varanasi heritage technique, pure katan silk threads with golden zari."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buyer Action Footer -->
+                <div class="p-4 bg-stone-50 border-t border-stone-200">
+                    <button onclick="triggerCustomerPurchase('Paytm ONDC')" id="btnBuyerBuy" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-black py-3 rounded-2xl text-xs shadow-lg flex items-center justify-center space-x-2 active:scale-98 transition">
+                        <i class="fas fa-bolt"></i>
+                        <span>Buy Now via UPI (Direct to Ramprasad)</span>
+                    </button>
+                    <p class="text-center text-[9px] text-stone-400 mt-1.5">
+                        <i class="fas fa-shield-alt mr-1 text-emerald-600"></i>
+                        Simulates external buyer purchase & direct UPI settlement
+                    </p>
+                </div>
+            </div>
+
+            <!-- =================================================================== -->
+            <!-- 3. AMAZON KARIGAR STOREFRONT                                        -->
+            <!-- =================================================================== -->
+            <div id="amazonSection" class="hidden flex-1 max-w-lg bg-white rounded-3xl border border-stone-200 shadow-xl overflow-hidden text-left flex flex-col justify-between">
+                <div>
+                    <!-- Amazon Header -->
+                    <div class="bg-amazon-dark text-white p-3.5 flex justify-between items-center border-b border-stone-800">
+                        <div class="flex items-center space-x-2.5">
+                            <span class="text-amazon-orange font-black text-lg tracking-wider">amazon<span class="text-white text-xs font-normal">.in</span></span>
+                            <span class="text-xs font-bold text-amber-300 bg-stone-800 px-2 py-0.5 rounded border border-amber-500/30">कारीगर | Karigar</span>
+                        </div>
+                        <span class="text-[10px] text-stone-300">Deliver to New Delhi 110001</span>
+                    </div>
+
+                    <!-- Amazon Listing Body -->
+                    <div class="p-5 space-y-4">
+                        <div class="relative rounded-2xl overflow-hidden aspect-video bg-white border border-stone-200 flex items-center justify-center p-2">
+                            <img id="amazonImg" src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800" class="w-full h-full object-contain" />
+                            <div class="absolute top-2 left-2 bg-amazon-orange text-stone-950 text-[9px] font-black px-2 py-0.5 rounded shadow">
+                                Amazon Karigar Choice
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex items-center space-x-1 text-amber-500 text-xs">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="text-stone-500 text-[10px] ml-1">4.8 (124 ratings)</span>
+                            </div>
+
+                            <h2 id="amazonTitle" class="text-sm font-bold text-stone-900 mt-1 leading-snug">
+                                Handcrafted Traditional Banarasi Scarf
+                            </h2>
+                            <p class="text-[10px] text-amazon-blue mt-0.5">Visit the MoSJE Karigar Store</p>
+
+                            <div class="flex items-baseline space-x-2 mt-2">
+                                <span class="text-xs font-bold text-red-600">-30%</span>
+                                <span id="amazonPrice" class="text-xl font-black text-stone-900">₹ 2,900</span>
+                                <span class="text-xs text-stone-400 line-through">M.R.P.: ₹ 4,200</span>
+                            </div>
+
+                            <div class="mt-2 text-[10px] text-stone-700 space-y-1 bg-stone-50 p-2.5 rounded-xl border border-stone-200">
+                                <p>✓ <b>Prime</b> FREE delivery by Tomorrow</p>
+                                <p>✓ 100% Direct to Artisan under MoSJE MoU</p>
+                                <p>✓ <b>ASIN:</b> B00019K &bull; <b>Status:</b> Active Live Feed</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buy Action -->
+                <div class="p-4 bg-stone-50 border-t border-stone-200">
+                    <button onclick="triggerCustomerPurchase('Amazon Karigar')" class="w-full bg-amazon-orange hover:bg-amber-500 text-stone-950 font-black py-3 rounded-2xl text-xs shadow-md transition flex items-center justify-center space-x-2 active:scale-98">
+                        <i class="fas fa-cart-shopping"></i>
+                        <span>Buy Now on Amazon Karigar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- =================================================================== -->
+            <!-- 4. MoSJE CENTRAL MINISTRY PORTAL                                    -->
+            <!-- =================================================================== -->
+            <div id="adminSection" class="hidden flex-1 max-w-xl bg-white rounded-3xl border border-stone-200 shadow-xl p-6 text-left space-y-5">
+                
+                <!-- Ministry Header -->
+                <div class="flex items-center space-x-3 pb-3 border-b border-stone-200">
+                    <div class="w-11 h-11 rounded-2xl bg-amber-600 text-white flex items-center justify-center text-lg shadow-md font-heritage">
+                        🏛️
+                    </div>
+                    <div>
+                        <h2 class="text-sm font-black text-stone-900">Ministry of Social Justice and Empowerment</h2>
+                        <p class="text-[10px] text-stone-500">Central Artisan Livelihood Monitoring Dashboard (MoSJE &bull; PM Vishwakarma)</p>
+                    </div>
+                </div>
+
+                <!-- KPI Tiles -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-amber-50/80 p-3.5 rounded-2xl border border-amber-200/80">
+                        <span class="text-[9px] font-bold text-stone-500 uppercase tracking-wider">Artisans Onboarded</span>
+                        <p class="text-xl font-black text-stone-900 mt-1">1,421</p>
+                        <span class="text-[9px] text-emerald-700 font-bold">● Live PM-DAKSH Sync</span>
+                    </div>
+                    <div id="catalogMetricBox" class="bg-emerald-50/80 p-3.5 rounded-2xl border border-emerald-200/80 transition-colors">
+                        <span class="text-[9px] font-bold text-stone-500 uppercase tracking-wider">Live E-Commerce Catalogs</span>
+                        <p id="metricCatalogs" class="text-xl font-black text-emerald-800 mt-1">5,845</p>
+                        <span class="text-[9px] text-emerald-700 font-bold">● Across 5 Marketplaces</span>
+                    </div>
+                    <div class="bg-blue-50/80 p-3.5 rounded-2xl border border-blue-200/80">
+                        <span class="text-[9px] font-bold text-stone-500 uppercase tracking-wider">Direct UPI Disbursal</span>
+                        <p class="text-xl font-black text-blue-900 mt-1">₹ 42.5 Lakhs</p>
+                        <span class="text-[9px] text-blue-700 font-bold">● 0% Middleman Deduction</span>
+                    </div>
+                    <div class="bg-orange-50/80 p-3.5 rounded-2xl border border-orange-200/80">
+                        <span class="text-[9px] font-bold text-stone-500 uppercase tracking-wider">PM Vishwakarma Toolkits</span>
+                        <p class="text-xl font-black text-orange-900 mt-1">980</p>
+                        <span class="text-[9px] text-orange-700 font-bold">● ₹15,000 Incentives Paid</span>
+                    </div>
+                </div>
+
+                <!-- State Cluster Distribution -->
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs font-bold text-stone-800">State Craft Clusters Enrolled</span>
+                        <span class="text-[9px] text-stone-500 font-semibold">Active GeM / Amazon Feeds</span>
+                    </div>
+                    
+                    <div class="space-y-1.5 text-xs">
+                        <div class="p-2.5 bg-stone-50 rounded-xl flex justify-between items-center border border-stone-200">
+                            <div>
+                                <p class="font-bold text-stone-900">Varanasi Silk Weavers</p>
+                                <p class="text-[9px] text-stone-500">Uttar Pradesh &bull; GI-Registered</p>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-800 font-bold text-[9px] px-2.5 py-1 rounded-full">421 Active</span>
+                        </div>
+                        <div class="p-2.5 bg-stone-50 rounded-xl flex justify-between items-center border border-stone-200">
+                            <div>
+                                <p class="font-bold text-stone-900">Bastar Dokra Metal Crafters</p>
+                                <p class="text-[9px] text-stone-500">Chhattisgarh &bull; Tribal Heritage</p>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-800 font-bold text-[9px] px-2.5 py-1 rounded-full">280 Active</span>
+                        </div>
+                        <div class="p-2.5 bg-stone-50 rounded-xl flex justify-between items-center border border-stone-200">
+                            <div>
+                                <p class="font-bold text-stone-900">Jaipur Blue Pottery Guild</p>
+                                <p class="text-[9px] text-stone-500">Rajasthan &bull; GI-Registered</p>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-800 font-bold text-[9px] px-2.5 py-1 rounded-full">352 Active</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ======================================================================= -->
+    <!-- MODALS & POPUPS                                                         -->
+    <!-- ======================================================================= -->
+
+    <!-- MODAL 1: DYNAMIC UPI QR -->
+    <div id="waModal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-5 space-y-4 shadow-2xl relative border border-stone-200 text-center">
+            <button onclick="closeWaModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-700">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center mx-auto text-xl shadow">
+                <i class="fas fa-qrcode"></i>
+            </div>
+            <div>
+                <h3 class="font-black text-stone-900 text-sm">Dynamic UPI Payment QR</h3>
+                <p class="text-[10px] text-stone-500">100% Direct Settlement to Artisan Bank Account</p>
+            </div>
+            <div class="bg-stone-50 p-4 rounded-2xl border border-stone-200 flex justify-center">
+                <img id="waQrImg" src="" class="w-48 h-48 object-contain rounded-lg shadow-sm" />
+            </div>
+            <div>
+                <p id="waTitle" class="text-xs font-bold text-stone-900"></p>
+                <p id="waPrice" class="text-base font-black text-emerald-700 mt-0.5"></p>
+            </div>
+            <button onclick="shareDirectWhatsAppCard()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center space-x-2 shadow transition">
+                <i class="fab fa-whatsapp text-sm"></i>
+                <span>Share Payment Link on WhatsApp</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL 2: AMAZON SP-API DEVELOPER INSPECTOR -->
+    <div id="spApiModal" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-stone-900 text-stone-100 rounded-3xl max-w-2xl w-full p-6 space-y-4 shadow-2xl relative border border-stone-800 text-left">
+            <button onclick="closeSpApiModal()" class="absolute top-4 right-4 text-stone-400 hover:text-white">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div class="flex items-center space-x-2.5">
+                <div class="w-8 h-8 rounded-xl bg-amazon-orange text-stone-950 flex items-center justify-center font-bold">
+                    <i class="fab fa-amazon"></i>
+                </div>
+                <div>
+                    <h3 class="font-black text-sm text-white">Amazon Selling Partner API (SP-API) Payload Inspector</h3>
+                    <p class="text-[10px] text-stone-400">Endpoint: PUT https://sellingpartnerapi-eu.amazon.com/listings/2021-08-01/items/{sellerId}/{sku}</p>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <div class="flex justify-between items-center text-[11px]">
+                    <span class="text-stone-400 font-mono">Payload Schema: HANDMADE_PRODUCT / Karigar</span>
+                    <span class="text-emerald-400 font-mono">Status: 200 ACCEPTED</span>
+                </div>
+                <pre class="bg-stone-950 p-3 rounded-2xl text-[10px] font-mono text-amber-300 border border-stone-800 overflow-x-auto max-h-64 custom-scrollbar">
+{
+  "productType": "HANDMADE_PRODUCT",
+  "requirements": "LISTING",
+  "attributes": {
+    "item_name": [{ "value": "Handcrafted Traditional Banarasi Scarf", "marketplace_id": "A21TJRUUN4KGV" }],
+    "bullet_point": [
+      { "value": "Authentic Handcrafted: Banarasi Silk Weaving", "marketplace_id": "A21TJRUUN4KGV" },
+      { "value": "Pure Traditional Material: 100% Katan Silk", "marketplace_id": "A21TJRUUN4KGV" },
+      { "value": "MoSJE Certified Artisan Partner (PM Vishwakarma Program)", "marketplace_id": "A21TJRUUN4KGV" }
+    ],
+    "merchant_suggested_asin": [{ "value": "B00019K", "marketplace_id": "A21TJRUUN4KGV" }],
+    "purchasable_offer": [{ "currency": "INR", "our_price": [{ "schedule": [{ "value_with_tax": 2900.0 }] }] }]
+  }
+}
+                </pre>
+            </div>
+
+            <div class="flex justify-end space-x-2 pt-2">
+                <button onclick="closeSpApiModal()" class="bg-stone-800 hover:bg-stone-700 text-stone-300 px-4 py-2 rounded-xl text-xs font-bold transition">
+                    Close Inspector
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================================= -->
+    <!-- MASTER JAVASCRIPT CONTROLLERS                                           -->
+    <!-- ======================================================================= -->
+    <script>
+        // State variables
+        let currentLanguage = 'hi';
+        let currentProductId = "shilp_default";
+        let currentPrice = 2900;
+        let currentProductTitle = "Handcrafted Traditional Banarasi Scarf";
+        let activeCategory = "textiles";
+        let activeMaterialCost = 350;
+        let activeLaborHours = 16;
+        let activeArtisanName = "Ramprasad Vishwakarma";
+
+        let capturedImageBlob = null;
+        let webcamStream = null;
+        let recognition = null;
+        let isRecordingVoice = false;
+
+        // 1. LANGUAGE TOGGLE (HINDI <-> ENGLISH)
+        function toggleAppLanguage() {
+            currentLanguage = currentLanguage === 'hi' ? 'en' : 'hi';
+            const isHi = currentLanguage === 'hi';
+            
+            document.getElementById('langBtnText').innerText = isHi ? "हिंदी / Eng" : "English / हिं";
+            document.getElementById('artisanGreeting').innerText = isHi ? "नमस्ते, रामप्रसाद जी" : "Namaste, Ramprasad ji";
+            document.getElementById('artisanSubtext').innerText = isHi ? "PM-UP-4210 • मास्टर बुनकर (Varanasi)" : "PM-UP-4210 • Master Weaver (Varanasi)";
+            document.getElementById('labelGovScheme').innerText = isHi ? "MoSJE प्रमाणित कारीगर पार्टनर" : "MoSJE Certified Artisan Partner";
+            document.getElementById('labelStep1').innerText = isHi ? "Step 1: Product Photo (शिल्प का फोटो लें)" : "Step 1: Craft Photo (Take or Upload)";
+            document.getElementById('btnTextOpenCam').innerText = isHi ? "Open Camera" : "Open Camera";
+            document.getElementById('btnTextUploadPhoto').innerText = isHi ? "Upload Photo" : "Upload Photo";
+            document.getElementById('labelStep2').innerText = isHi ? "Step 2: Voice Story (अपनी बोली में बताएं)" : "Step 2: Voice Story (Speak details)";
+            document.getElementById('btnTextGenerate').innerText = isHi ? "Create AI Studio & Multi-Channel Feeds" : "Generate AI Catalog & 5 Market Feeds";
+        }
+
+        // 2. PHONE TAB SWITCHER (Comfy, Instant, Fluid)
+        function switchPhoneTab(tabName) {
+            const tabs = ['home', 'catalogs', 'bargain', 'shilpi', 'orders'];
+            tabs.forEach(t => {
+                const pane = document.getElementById('tabContent' + t.charAt(0).toUpperCase() + t.slice(1));
+                const nav = document.getElementById('tabNav' + t.charAt(0).toUpperCase() + t.slice(1));
+                if (t === tabName) {
+                    pane.classList.remove('hidden');
+                    nav.className = "flex flex-col items-center text-clay-600 font-bold transition scale-105";
+                } else {
+                    pane.classList.add('hidden');
+                    nav.className = "flex flex-col items-center text-stone-500 hover:text-clay-600 transition";
+                }
+            });
+            if (tabName === 'catalogs') loadArtisanCatalogs();
+        }
+
+        // 3. MASTER DESKTOP VIEW SWITCHER
+        function switchMasterView(mode) {
+            const m = document.getElementById('mobileSection');
+            const s = document.getElementById('storefrontSection');
+            const az = document.getElementById('amazonSection');
+            const a = document.getElementById('adminSection');
+
+            const bm = document.getElementById('btnViewMobile');
+            const bs = document.getElementById('btnViewStorefront');
+            const baz = document.getElementById('btnViewAmazon');
+            const ba = document.getElementById('btnViewAdmin');
+            const bsp = document.getElementById('btnViewSplit');
+
+            [bm, bs, baz, ba, bsp].forEach(b => b.className = "px-3 py-1.5 font-bold rounded-xl text-stone-400 hover:text-white transition");
+
+            if (mode === 'mobile') {
+                m.classList.remove('hidden');
+                s.classList.add('hidden');
+                az.classList.add('hidden');
+                a.classList.add('hidden');
+                bm.className = "px-3 py-1.5 font-bold rounded-xl bg-clay-600 text-white shadow";
+            } else if (mode === 'storefront') {
+                m.classList.add('hidden');
+                s.classList.remove('hidden');
+                az.classList.add('hidden');
+                a.classList.add('hidden');
+                bs.className = "px-3 py-1.5 font-bold rounded-xl bg-paytm-blue text-white shadow";
+            } else if (mode === 'amazon') {
+                m.classList.add('hidden');
+                s.classList.add('hidden');
+                az.classList.remove('hidden');
+                a.classList.add('hidden');
+                baz.className = "px-3 py-1.5 font-bold rounded-xl bg-amazon-orange text-stone-950 shadow";
+            } else if (mode === 'admin') {
+                m.classList.add('hidden');
+                s.classList.add('hidden');
+                az.classList.add('hidden');
+                a.classList.remove('hidden');
+                ba.className = "px-3 py-1.5 font-bold rounded-xl bg-emerald-600 text-white shadow";
+            } else {
+                // Split view
+                m.classList.remove('hidden');
+                s.classList.remove('hidden');
+                az.classList.add('hidden');
+                a.classList.remove('hidden');
+                bsp.className = "px-3 py-1.5 font-bold rounded-xl bg-gradient-to-r from-clay-600 to-amber-600 text-white shadow-md transition";
+            }
+        }
+
+        // 4. 1-TAP CRAFT PRESETS
+        function applyPreset(type) {
+            activeCategory = type;
+            const presets = {
+                textiles: {
+                    cost: 350,
+                    hours: 16,
+                    text: "Yeh pure Banarasi katan silk dupatta hai, haath se buna hua gold zari ke sath, do din lage banane me, 350 rupaye ka kacha mal laga.",
+                    img: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600"
+                },
+                pottery: {
+                    cost: 250,
+                    hours: 12,
+                    text: "Yeh handmade Jaipur blue pottery ka flower vase hai, natural cobalt blue colour aur multani mitti se bana, 12 ghante lage.",
+                    img: "https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=600"
+                },
+                metalwork: {
+                    cost: 180,
+                    hours: 6,
+                    text: "Yeh purani dhokra mitti aur pital ki technique se bana traditional tribal diya hai, 6 ghante lage, 180 ka pital laga.",
+                    img: "https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?w=600"
+                }
+            };
+            const p = presets[type];
+            activeMaterialCost = p.cost;
+            activeLaborHours = p.hours;
+            document.getElementById('transcriptText').innerText = `"${p.text}"`;
+            document.getElementById('voiceBadge').innerText = "Preset Ready ✓";
+            document.getElementById('voiceBadge').className = "text-[9px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full";
+        }
+
+        // 5. CAMERA LOGIC
+        async function startLiveCamera() {
+            try {
+                webcamStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+                const video = document.getElementById('webcamVideo');
+                video.srcObject = webcamStream;
+                video.classList.remove('hidden');
+                document.getElementById('cameraPlaceholder').classList.add('hidden');
+                document.getElementById('capturedPhotoImg').classList.add('hidden');
+                document.getElementById('shutterRow').classList.remove('hidden');
+                document.getElementById('btnStartCam').classList.add('hidden');
+            } catch (err) {
+                alert("Could not access live camera. You can use 'Upload Photo' instead.");
+            }
+        }
+
+        function stopLiveCamera() {
+            if (webcamStream) {
+                webcamStream.getTracks().forEach(t => t.stop());
+                webcamStream = null;
+            }
+            document.getElementById('webcamVideo').classList.add('hidden');
+            document.getElementById('shutterRow').classList.add('hidden');
+            document.getElementById('btnStartCam').classList.remove('hidden');
+            if (!capturedImageBlob) {
+                document.getElementById('cameraPlaceholder').classList.remove('hidden');
+            }
+        }
+
+        function captureCameraPhoto() {
+            const video = document.getElementById('webcamVideo');
+            const canvas = document.getElementById('photoCanvas');
+            canvas.width = video.videoWidth || 640;
+            canvas.height = video.videoHeight || 480;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            canvas.toBlob(blob => {
+                capturedImageBlob = blob;
+                const url = URL.createObjectURL(blob);
+                const img = document.getElementById('capturedPhotoImg');
+                img.src = url;
+                img.classList.remove('hidden');
+                stopLiveCamera();
+                document.getElementById('retakeRow').classList.remove('hidden');
+                document.getElementById('photoBadge').innerText = "Captured ✓";
+                document.getElementById('photoBadge').className = "text-[9px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full";
+            }, 'image/jpeg', 0.9);
+        }
+
+        function triggerFileInput() {
+            document.getElementById('craftFileInput').click();
+        }
+
+        function handleFileUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            capturedImageBlob = file;
+            const url = URL.createObjectURL(file);
+            const img = document.getElementById('capturedPhotoImg');
+            img.src = url;
+            img.classList.remove('hidden');
+            document.getElementById('cameraPlaceholder').classList.add('hidden');
+            document.getElementById('retakeRow').classList.remove('hidden');
+            document.getElementById('photoBadge').innerText = "Uploaded ✓";
+            document.getElementById('photoBadge').className = "text-[9px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full";
+        }
+
+        function resetCameraPhoto() {
+            capturedImageBlob = null;
+            document.getElementById('capturedPhotoImg').classList.add('hidden');
+            document.getElementById('cameraPlaceholder').classList.remove('hidden');
+            document.getElementById('retakeRow').classList.add('hidden');
+            document.getElementById('photoBadge').innerText = "No photo";
+            document.getElementById('photoBadge').className = "text-[9px] font-bold text-stone-400 bg-stone-100 px-2.5 py-0.5 rounded-full";
+        }
+
+        // 6. VOICE RECOGNITION
+        function toggleVoiceRecording() {
+            if (isRecordingVoice) {
+                stopVoiceRecording();
+            } else {
+                startVoiceRecording();
+            }
+        }
+
+        function startVoiceRecording() {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRecognition) {
+                alert("Speech recognition is not supported in this browser. Please use Google Chrome or pick a 1-tap craft preset!");
+                return;
+            }
+
+            recognition = new SpeechRecognition();
+            recognition.lang = currentLanguage === 'hi' ? 'hi-IN' : 'en-IN';
+            recognition.interimResults = true;
+
+            const btn = document.getElementById('voiceRecordBtn');
+            const micIcon = document.getElementById('voiceMicIcon');
+            const status = document.getElementById('voiceRecordStatus');
+            const waveAnim = document.getElementById('waveAnim');
+
+            recognition.onstart = () => {
+                isRecordingVoice = true;
+                btn.classList.add('mic-recording', 'bg-red-600');
+                micIcon.className = "fas fa-stop text-xl text-white";
+                status.innerText = "Listening... Speak in Hindi or English (सुन रहे हैं...)";
+                status.className = "text-[10px] text-red-600 font-bold mt-1.5 animate-pulse";
+                waveAnim.classList.remove('hidden');
+                waveAnim.classList.add('flex');
+            };
+
+            recognition.onresult = (event) => {
+                let text = "";
+                for (let i = event.resultIndex; i < event.results.length; ++i) {
+                    text += event.results[i][0].transcript;
+                }
+                document.getElementById('transcriptText').innerText = `"${text}"`;
+                document.getElementById('voiceBadge').innerText = "Voice Recorded ✓";
+                document.getElementById('voiceBadge').className = "text-[9px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-full";
+            };
+
+            recognition.onerror = () => stopVoiceRecording();
+            recognition.onend = () => stopVoiceRecording();
+
+            recognition.start();
+        }
+
+        function stopVoiceRecording() {
+            if (recognition) {
+                try { recognition.stop(); } catch(e) {}
+            }
+            isRecordingVoice = false;
+            const btn = document.getElementById('voiceRecordBtn');
+            const micIcon = document.getElementById('voiceMicIcon');
+            const status = document.getElementById('voiceRecordStatus');
+            const waveAnim = document.getElementById('waveAnim');
+
+            btn.classList.remove('mic-recording', 'bg-red-600');
+            micIcon.className = "fas fa-microphone text-xl text-white";
+            status.innerText = "Voice Captured ✓ (Tap to speak again)";
+            status.className = "text-[10px] text-stone-500 font-bold mt-1.5";
+            waveAnim.classList.add('hidden');
+            waveAnim.classList.remove('flex');
+        }
+
+        // 7. SUBMIT TO SHILP AI PIPELINE
+        async function submitToShilpAI() {
+            const transcriptHint = document.getElementById('transcriptText').innerText.replace(/^"|"$/g, '');
+            const loadBox = document.getElementById('loadingBox');
+            const resCard = document.getElementById('resultCard');
+            const btn = document.getElementById('btnGenerateCatalog');
+
+            loadBox.classList.remove('hidden');
+            resCard.classList.add('hidden');
+            btn.disabled = true;
+
+            try {
+                const formData = new FormData();
+                formData.append('craft_category', activeCategory);
+                formData.append('material_cost', activeMaterialCost);
+                formData.append('labor_hours', activeLaborHours);
+                formData.append('artisan_name', activeArtisanName);
+                formData.append('transcript_hint', transcriptHint);
+
+                if (capturedImageBlob) {
+                    formData.append('image_file', capturedImageBlob, 'artisan_craft.jpg');
+                }
+
+                const res = await fetch("http://127.0.0.1:8000/api/v1/media/process-raw", {
+                    method: "POST",
+                    body: formData
+                });
+                const data = await res.json();
+                currentProductId = data.product_id;
+                currentPrice = data.pricing.recommended_retail_price;
+                currentProductTitle = data.catalog.title_en;
+
+                document.getElementById('resTitleEn').innerText = data.catalog.title_en;
+                document.getElementById('resTitleHi').innerText = data.catalog.title_hi;
+                document.getElementById('resPrice').innerText = "₹ " + currentPrice.toLocaleString();
+                document.getElementById('resWholesale').innerText = "₹ " + data.pricing.wholesale_b2b_price.toLocaleString() + " / pc";
+                
+                const studioImgUrl = "http://127.0.0.1:8000" + data.enhanced_studio_url;
+                document.getElementById('resEnhancedImg').src = studioImgUrl;
+
+                // Sync Storefronts
+                document.getElementById('storefrontTitle').innerText = data.catalog.title_en;
+                document.getElementById('storefrontStory').innerText = `"${data.catalog.story_en}"`;
+                document.getElementById('storefrontPrice').innerText = "₹ " + currentPrice.toLocaleString();
+                document.getElementById('storefrontImg').src = studioImgUrl;
+
+                document.getElementById('amazonTitle').innerText = data.catalog.title_en;
+                document.getElementById('amazonPrice').innerText = "₹ " + currentPrice.toLocaleString();
+                document.getElementById('amazonImg').src = studioImgUrl;
+
+                // Standee PDF link
+                document.getElementById('standeePdfLink').href = `http://127.0.0.1:8000/api/v1/products/${currentProductId}/mela-standee-pdf?title=${encodeURIComponent(data.catalog.title_en)}&craft=${encodeURIComponent(data.catalog.craft_technique)}&price=${currentPrice}`;
+
+                // Audio player
+                const audioPlayer = document.getElementById('ttsAudioPlayer');
+                audioPlayer.src = `http://127.0.0.1:8000/static/audio/audio_${currentProductId}.mp3`;
+                audioPlayer.load();
+
+                // Ministry Counter update
+                let curCount = parseInt(document.getElementById('metricCatalogs').innerText.replace(',', ''));
+                document.getElementById('metricCatalogs').innerText = (curCount + 1).toLocaleString();
+                const box = document.getElementById('catalogMetricBox');
+                box.classList.add('bg-amber-100');
+                setTimeout(() => box.classList.remove('bg-amber-100'), 1500);
+
+                loadBox.classList.add('hidden');
+                resCard.classList.remove('hidden');
+
+                loadArtisanCatalogs();
+            } catch (err) {
+                console.error(err);
+                alert("Error connecting to backend on http://127.0.0.1:8000. Please ensure backend is running!");
+                loadBox.classList.add('hidden');
+            } finally {
+                btn.disabled = false;
+            }
+        }
+
+        // 8. 5-CHANNEL MULTI-PUBLISH
+        async function publishToAllFiveChannels() {
+            const btn = document.getElementById('btnMasterPublish');
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-1"></i> Synchronizing with 5 Platforms...`;
+            btn.disabled = true;
+
+            try {
+                const res = await fetch("http://127.0.0.1:8000/api/v1/channels/publish-multi", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ product_id: currentProductId })
+                });
+                const data = await res.json();
+                
+                document.getElementById('badgeAsin').innerText = "ASIN: " + data.channels.amazon_karigar.asin;
+                document.getElementById('badgeFsn').innerText = "FSN: " + data.channels.flipkart_samarth.fsn;
+                document.getElementById('badgeEtsy').innerText = `Price: ${data.channels.etsy_global.price_usd}`;
+
+                btn.className = "w-full bg-emerald-600 text-white font-black py-2 rounded-xl text-[11px] shadow transition flex items-center justify-center space-x-1.5";
+                btn.innerHTML = `<i class="fas fa-check-circle"></i> Live on All 5 Marketplaces!`;
+                document.getElementById('multiSyncStatus').classList.remove('hidden');
+            } catch (err) {
+                console.error(err);
+                alert("Failed to reach multi-channel publishing service.");
+            } finally {
+                setTimeout(() => { btn.disabled = false; }, 2000);
+            }
+        }
+
+        // 9. TRIGGER BUYER ORDER (CROSS-SCREEN SETTLEMENT)
+        async function triggerCustomerPurchase(sourcePlatform) {
+            try {
+                const res = await fetch("http://127.0.0.1:8000/api/v1/orders/simulate-ondc-order", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        product_id: currentProductId,
+                        buyer_name: "Suman Rao",
+                        city: "Mumbai, Maharashtra",
+                        quantity: 1,
+                        buyer_app: sourcePlatform
+                    })
+                });
+                const order = await res.json();
+
+                // Notify Artisan Phone
+                const toast = document.getElementById('artisanOrderToast');
+                document.getElementById('toastOrderText').innerText = `₹ ${order.total_amount.toLocaleString()} • ${sourcePlatform} • भुगतान सफल via UPI`;
+                toast.classList.remove('hidden');
+                setTimeout(() => toast.classList.add('hidden'), 7000);
+
+                // Sound chime
+                try {
+                    let audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    let osc = audioContext.createOscillator();
+                    let gain = audioContext.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioContext.destination);
+                    osc.frequency.setValueAtTime(587.33, audioContext.currentTime);
+                    osc.frequency.setValueAtTime(880, audioContext.currentTime + 0.1);
+                    gain.gain.setValueAtTime(0.3, audioContext.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                    osc.start();
+                    osc.stop(audioContext.currentTime + 0.5);
+                } catch(e) {}
+
+                alert(`Order Confirmed on ${sourcePlatform}!\nOrder ID: ${order.order_id}\nAmount: ₹${order.total_amount}\nSettled directly to Ramprasad's UPI account.`);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        // 10. "सौदा रक्षक" (BARGAINING SHIELD)
+        async function checkBargainShield() {
+            const offer = parseFloat(document.getElementById('inputOfferPrice').value);
+            if (!offer || isNaN(offer)) {
+                alert("Please enter a valid offer amount.");
+                return;
+            }
+
+            try {
+                const res = await fetch("http://127.0.0.1:8000/api/v1/pricing/bargain-shield", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        material_cost: activeMaterialCost,
+                        labor_hours: activeLaborHours,
+                        offered_price: offer,
+                        craft_type: activeCategory
+                    })
+                });
+                const data = await res.json();
+                
+                const box = document.getElementById('bargainResultBox');
+                const badge = document.getElementById('bargainVerdictBadge');
+                const reason = document.getElementById('bargainReasonText');
+                const counter = document.getElementById('bargainCounterText');
+                const margin = document.getElementById('bargainMarginBadge');
+
+                box.classList.remove('hidden');
+                margin.innerText = `Cost Floor: ₹${data.cost_floor}`;
+
+                if (data.verdict === 'EXPLOITATIVE_LOSS') {
+                    box.className = "p-3 rounded-2xl space-y-2 border border-red-200 bg-red-50 text-left";
+                    badge.className = "text-[10px] font-black px-2 py-0.5 rounded-full bg-red-600 text-white";
+                    badge.innerText = "हानिकारक सौदा (REJECT OFFER)";
+                    reason.innerText = `⚠️ ₹${offer} में बेचना घाटे का सौदा है! आपकी मजदूरी और कच्चे माल की लागत ₹${data.cost_floor} है।`;
+                } else if (data.verdict === 'FAIR_MARGIN') {
+                    box.className = "p-3 rounded-2xl space-y-2 border border-emerald-200 bg-emerald-50 text-left";
+                    badge.className = "text-[10px] font-black px-2 py-0.5 rounded-full bg-emerald-600 text-white";
+                    badge.innerText = "उचित सौदा (ACCEPT OFFER)";
+                    reason.innerText = `✓ ₹${offer} एक सम्मानजनक सौदा है। आपका दैनिक वेतन और उचित मुनाफा सुरक्षित है।`;
+                } else {
+                    box.className = "p-3 rounded-2xl space-y-2 border border-amber-200 bg-amber-50 text-left";
+                    badge.className = "text-[10px] font-black px-2 py-0.5 rounded-full bg-amber-600 text-white";
+                    badge.innerText = "कम मुनाफा (COUNTER OFFER)";
+                    reason.innerText = `सावधानी: यह लागत के बहुत करीब है। बेहतर होगा कि आप काउंटर ऑफर दें।`;
+                }
+
+                counter.innerText = `"${data.artisan_dialogue_hindi}" (Recommended: ₹${data.recommended_counter_offer})`;
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        // 11. "शिल्प सखी" (SHILPI VOICE COMPANION)
+        async function askShilpiFast(questionText) {
+            document.getElementById('tabShilpiAnswerText').innerText = "शिल्प सखी सोच रही है... (Generating audio answer...)";
+            try {
+                const res = await fetch("http://127.0.0.1:8000/api/v1/assistant/shilpi", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ question: questionText })
+                });
+                const data = await res.json();
+                document.getElementById('tabShilpiAnswerText').innerText = data.answer_hi;
+                if (data.audio_url) {
+                    const aud = document.getElementById('tabShilpiAudioPlayer');
+                    aud.src = "http://127.0.0.1:8000" + data.audio_url;
+                    aud.classList.remove('hidden');
+                    aud.play().catch(e => {});
+                }
+            } catch (e) {
+                document.getElementById('tabShilpiAnswerText').innerText = "सहायक सेवा से कनेक्ट नहीं हो सका।";
+            }
+        }
+
+        function askShilpiTabManual() {
+            const q = document.getElementById('tabShilpiCustomInput').value;
+            if (q) askShilpiFast(q);
+        }
+
+        // 12. CATALOGS LIST
+        async function loadArtisanCatalogs() {
+            const container = document.getElementById('catalogsListContainer');
+            try {
+                const res = await fetch("http://127.0.0.1:8000/api/v1/products");
+                const data = await res.json();
+                const products = data.products || [];
+
+                if (products.length === 0) {
+                    container.innerHTML = `<p class="text-center text-xs text-stone-400 py-6">No products cataloged yet.</p>`;
+                    return;
+                }
+
+                container.innerHTML = products.map(p => {
+                    const imgUrl = p.enhanced_studio_url ? ("http://127.0.0.1:8000" + p.enhanced_studio_url) : "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400";
+                    const qrUrl = `http://127.0.0.1:8000/api/v1/products/${p.id}/upi-qr?amount=${p.retail_price}`;
+                    return `
+                        <div class="bg-white border border-stone-200 p-2.5 rounded-2xl flex items-center space-x-2.5 shadow-sm hover:shadow transition">
+                            <img src="${imgUrl}" class="w-14 h-14 object-cover rounded-xl border border-stone-200 bg-stone-100 flex-shrink-0" />
+                            <div class="flex-1 min-w-0">
+                                <span class="text-[8px] font-extrabold uppercase tracking-wider text-clay-600 bg-clay-50 px-1.5 py-0.5 rounded">${p.craft_category}</span>
+                                <h5 class="text-xs font-bold text-stone-900 leading-tight truncate mt-0.5">${p.title_en}</h5>
+                                <div class="flex justify-between items-baseline mt-1">
+                                    <span class="text-xs font-black text-emerald-700">₹ ${p.retail_price.toLocaleString()}</span>
+                                    <span class="text-[8px] font-bold text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded">5 Channels Live</span>
+                                </div>
+                            </div>
+                            <button onclick="showCustomQrModal('${p.title_en.replace(/'/g, "\\'")}', ${p.retail_price}, '${qrUrl}')" class="w-8 h-8 rounded-xl bg-stone-100 hover:bg-amber-100 text-stone-700 flex items-center justify-center text-xs flex-shrink-0 transition">
+                                <i class="fas fa-qrcode"></i>
+                            </button>
+                        </div>
+                    `;
+                }).join('');
+            } catch (e) {
+                container.innerHTML = `<p class="text-center text-xs text-stone-400 py-6">Could not load catalogs.</p>`;
+            }
+        }
+
+        // 13. QR MODAL
+        function openCustomQrModal() {
+            const qrUrl = `http://127.0.0.1:8000/api/v1/products/${currentProductId}/upi-qr?amount=${currentPrice}`;
+            showCustomQrModal(currentProductTitle, currentPrice, qrUrl);
+        }
+
+        function showCustomQrModal(title, price, qrUrl) {
+            document.getElementById('waTitle').innerText = title;
+            document.getElementById('waPrice').innerText = "Amount: ₹ " + price.toLocaleString();
+            document.getElementById('waQrImg').src = qrUrl;
+            document.getElementById('waModal').classList.remove('hidden');
+        }
+
+        function closeWaModal() {
+            document.getElementById('waModal').classList.add('hidden');
+        }
+
+        function shareDirectWhatsAppCard() {
+            const text = 
+                `🎨 *${encodeURIComponent(currentProductTitle)}*%0A` +
+                `💰 *Price:* ₹${currentPrice.toLocaleString()}%0A` +
+                `👤 *Artisan:* Ramprasad Vishwakarma (PM-UP-4210)%0A` +
+                `✅ *MoSJE Certified Ethical Craft*%0A` +
+                `📲 *Pay via UPI:* upi://pay?pa=${currentProductId}@upi&pn=Ramprasad&am=${currentPrice}%0A%0A` +
+                `_Support Indian rural artisans across 5 major marketplaces._`;
+            window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+        }
+
+        // 14. SP-API INSPECTOR MODAL
+        function openSpApiModal() {
+            document.getElementById('spApiModal').classList.remove('hidden');
+        }
+
+        function closeSpApiModal() {
+            document.getElementById('spApiModal').classList.add('hidden');
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadArtisanCatalogs();
+            fetch("http://127.0.0.1:8000/api/v1/analytics/ministry")
+                .then(r => r.json())
+                .then(d => {
+                    document.getElementById('metricCatalogs').innerText = d.total_catalogs_generated.toLocaleString();
+                })
+                .catch(e => {});
+        });
+    </script>
+</body>
+</html>
