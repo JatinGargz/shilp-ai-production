@@ -7,7 +7,8 @@ if sys.platform == "win32":
     except Exception:
         pass
 
-sys.path.insert(0, r"C:\Users\Jatin\.gemini\antigravity\scratch\shilp-ai\backend")
+backend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, backend_dir)
 from fastapi.testclient import TestClient
 from app.main import app
 
@@ -101,6 +102,13 @@ r11 = client.get("/api/v1/analytics/ministry")
 assert r11.status_code == 200
 print(f"[PASS] 11. MoSJE Central Ministry Portal Analytics: {r11.json()['total_catalogs_generated']} Catalogs Live")
 
+# 12. Trending Craft Intelligence ("शिल्प रुझान")
+r12 = client.get("/api/v1/trends/textiles")
+assert r12.status_code == 200
+tr = r12.json()
+assert "trending_motifs" in tr
+print(f"[PASS] 12. Trending Craft Demand Engine: OK -> '{tr['craft_name_en']}' {tr['surge_badge']}")
+
 print("=" * 65)
-print("   ALL 11/11 TESTS PASSED PERFECTLY! SYSTEM 100% OPERATIONAL")
+print("   ALL 12/12 TESTS PASSED PERFECTLY! SYSTEM 100% OPERATIONAL")
 print("=" * 65)
