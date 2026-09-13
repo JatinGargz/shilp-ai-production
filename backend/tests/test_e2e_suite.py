@@ -25,7 +25,7 @@ print("[PASS]  1. Server Health Check: Healthy")
 
 # 2. Frontend
 r2 = client.get("/")
-assert r2.status_code == 200 and "SHILP AI" in r2.text
+assert r2.status_code == 200 and ("KALAKART" in r2.text or "KalaKart" in r2.text)
 print(f"[PASS]  2. Multi-Channel Web App: Served ({len(r2.text)} chars)")
 
 # 3. Process Craft
