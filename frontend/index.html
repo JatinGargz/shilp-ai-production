@@ -3,47 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KALAKART (कलाकार्ट) — Luxury Heritage Design System</title>
+    <title>KALAKART (कलाकार्ट) — SIH 2026 Prototype | 11-Panel Master Design System</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
+    <!-- Font Awesome 6 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts: Playfair Display, Plus Jakarta Sans, Noto Sans Devanagari -->
+    <!-- Google Fonts: Playfair Display, Inter, Noto Sans Devanagari, Cinzel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Tailwind Config injected from User Tokens -->
+    <!-- Tailwind Config: Exact Design Tokens from Mockup -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        kalakart: {
-                            canvas: '#F9F4EB',
-                            card: '#F4EBDD',
-                            cardMuted: '#EFE3CE',
-                            border: '#E2D3BE',
-                            primary: '#7A1C1C',
+                        kk: {
+                            primary: '#7A1C1C',        /* Royal Crimson / Deep Terracotta */
                             primaryDark: '#5E1414',
-                            accent: '#C87D32',
-                            charcoal: '#1C1714',
-                            textPrimary: '#2B2118',
-                            textMuted: '#6B5E52',
+                            accent: '#C87D32',         /* Marigold / Warm Ochre */
+                            camel: '#B78B6A',          /* Muted Accent */
+                            canvas: '#F9F4EB',         /* Warm Raw Cotton Canvas */
+                            card: '#F4EBDD',           /* Parchment Surface */
+                            cardMuted: '#EFE3CE',      /* Recessed Wells & Inputs */
+                            border: '#E2D3BE',         /* Subtle Organic Border */
+                            charcoal: '#1C1714',       /* Deep Indian Ink Charcoal */
+                            textDark: '#2B2118',       /* Deep Dark Heading & Body */
+                            textMuted: '#6B5E52',      /* Secondary Muted Text */
+                            success: '#2E7D32',        /* Verified Green */
+                            warning: '#D97706',
+                            danger: '#C62828'
                         }
                     },
                     fontFamily: {
-                        display: ['Playfair Display', 'Georgia', 'serif'],
-                        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
-                        devanagari: ['Noto Sans Devanagari', 'sans-serif'],
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+                        cinzel: ['Cinzel', 'serif'],
+                        devanagari: ['Noto Sans Devanagari', 'sans-serif']
                     },
                     borderRadius: {
                         'card': '16px',
+                        'pill': '9999px'
                     },
                     boxShadow: {
-                        'soft': '0 4px 20px rgba(60, 42, 28, 0.05)',
-                        'card': '0 1px 3px rgba(43, 33, 24, 0.06), 0 1px 2px rgba(43, 33, 24, 0.04)',
-                        'elevated': '0 10px 25px -5px rgba(43, 33, 24, 0.1), 0 8px 10px -6px rgba(43, 33, 24, 0.06)'
+                        'soft': '0 4px 14px rgba(43, 33, 24, 0.05)',
+                        'card': '0 2px 6px rgba(43, 33, 24, 0.06)',
+                        'elevated': '0 12px 30px -5px rgba(43, 33, 24, 0.12)'
                     }
                 }
             }
@@ -52,68 +58,51 @@
 
     <style>
         :root {
-            --kk-brand-primary: #7A1C1C;
-            --kk-brand-primary-hover: #5E1414;
-            --kk-brand-accent: #C87D32;
-            --kk-brand-charcoal: #1C1714;
-            --kk-bg-canvas: #F9F4EB;
-            --kk-bg-card: #F4EBDD;
-            --kk-bg-card-muted: #EFE3CE;
-            --kk-text-primary: #2B2118;
-            --kk-text-secondary: #6B5E52;
-            --kk-text-inverse: #FFFDF9;
-            --kk-border-default: #E2D3BE;
-            --kk-border-active: #7A1C1C;
-            --kk-radius-sm: 8px;
-            --kk-radius-md: 12px;
-            --kk-radius-lg: 16px;
-            --kk-radius-full: 9999px;
-            --kk-shadow-soft: 0 4px 12px rgba(60, 42, 28, 0.05);
-            --kk-font-heading: 'Playfair Display', Georgia, serif;
-            --kk-font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
-            --kk-font-indic: 'Noto Sans Devanagari', sans-serif;
+            --kk-primary: #7A1C1C;
+            --kk-primary-dark: #5E1414;
+            --kk-accent: #C87D32;
+            --kk-canvas: #F9F4EB;
+            --kk-card: #F4EBDD;
+            --kk-card-muted: #EFE3CE;
+            --kk-border: #E2D3BE;
+            --kk-text-dark: #2B2118;
+            --kk-text-muted: #6B5E52;
+            --kk-charcoal: #1C1714;
         }
 
         body {
-            background-color: #F9F4EB;
-            color: #2B2118;
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--kk-canvas);
+            color: var(--kk-text-dark);
+            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
         }
 
-        .font-serif-display {
-            font-family: 'Playfair Display', Georgia, serif;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #F4EBDD; }
+        ::-webkit-scrollbar-thumb { background: #E2D3BE; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #C87D32; }
+
+        /* Traditional Indian Motif Border Generator */
+        .kk-motif-band {
+            background-image: radial-gradient(#C87D32 0.75px, transparent 0.75px), radial-gradient(#7A1C1C 0.75px, #F4EBDD 0.75px);
+            background-size: 12px 12px;
+            background-position: 0 0, 6px 6px;
         }
 
-        .font-indic {
-            font-family: 'Noto Sans Devanagari', sans-serif;
-        }
-
-        /* Custom Scrollbars */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #F4EBDD;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #E2D3BE;
-            border-radius: 9999px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #C87D32;
-        }
-
-        /* Card styles with exact token borders */
+        /* Core Card Style Matching Mockup Panels */
         .kk-panel {
             background-color: #F4EBDD;
             border: 1px solid #E2D3BE;
             border-radius: 16px;
-            box-shadow: 0 4px 14px rgba(43, 33, 24, 0.04);
+            box-shadow: 0 2px 8px rgba(43, 33, 24, 0.05);
+            transition: all 0.2s ease;
             position: relative;
+        }
+        .kk-panel:hover {
+            border-color: #C87D32;
         }
 
         .kk-panel-inner {
@@ -122,545 +111,631 @@
             border-radius: 12px;
         }
 
-        .kk-button-primary {
+        .kk-btn-primary {
             background-color: #7A1C1C;
-            color: #FFFDF9;
+            color: #FFFFFF;
             border-radius: 9999px;
-            padding: 8px 20px;
+            padding: 7px 18px;
             font-weight: 600;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
             transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(122, 28, 28, 0.22);
+            cursor: pointer;
         }
-        .kk-button-primary:hover {
+        .kk-btn-primary:hover {
             background-color: #5E1414;
             transform: translateY(-1px);
+        }
+
+        .kk-btn-outline {
+            background-color: transparent;
+            color: #2B2118;
+            border: 1px solid #E2D3BE;
+            border-radius: 9999px;
+            padding: 7px 16px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .kk-btn-outline:hover {
+            border-color: #7A1C1C;
+            color: #7A1C1C;
+            background-color: rgba(122, 28, 28, 0.04);
         }
 
         .kk-chip {
             background: #EFE3CE;
             border: 1px solid #E2D3BE;
             border-radius: 9999px;
-            padding: 4px 12px;
+            padding: 4px 11px;
             font-size: 0.72rem;
-            color: #2B2118;
             font-weight: 600;
+            color: #2B2118;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .kk-chip:hover, .kk-chip.active {
+            background: #7A1C1C;
+            color: #FFFFFF;
+            border-color: #7A1C1C;
         }
 
-        /* Wave Animation for Voice */
+        /* Voice Wave Animation */
+        @keyframes soundWave {
+            0%, 100% { height: 4px; }
+            50% { height: 22px; }
+        }
         .wave-bar {
-            display: inline-block;
             width: 3px;
-            height: 14px;
-            background-color: #7A1C1C;
-            border-radius: 2px;
-            animation: wave 1.2s infinite ease-in-out;
+            background: #7A1C1C;
+            border-radius: 9999px;
+            animation: soundWave 1.2s ease-in-out infinite;
         }
-        .wave-bar:nth-child(2) { animation-delay: 0.1s; height: 20px; }
-        .wave-bar:nth-child(3) { animation-delay: 0.2s; height: 16px; }
-        .wave-bar:nth-child(4) { animation-delay: 0.3s; height: 22px; }
-        .wave-bar:nth-child(5) { animation-delay: 0.4s; height: 12px; }
-        @keyframes wave {
-            0%, 100% { transform: scaleY(0.4); }
-            50% { transform: scaleY(1); }
-        }
-
-        /* Ornamental Indian Motif Border */
-        .indian-border-bottom {
-            background-image: radial-gradient(#C87D32 1px, transparent 1px);
-            background-size: 8px 8px;
-        }
+        .wave-bar:nth-child(2) { animation-delay: 0.2s; }
+        .wave-bar:nth-child(3) { animation-delay: 0.4s; }
+        .wave-bar:nth-child(4) { animation-delay: 0.15s; }
+        .wave-bar:nth-child(5) { animation-delay: 0.5s; }
     </style>
 </head>
-<body class="bg-kalakart-canvas text-kalakart-textPrimary min-h-screen flex flex-col">
+<body class="bg-kk-canvas text-kk-textDark min-h-screen flex flex-col">
 
     <!-- ======================================================================= -->
     <!-- MASTER CONTROLLER TOP BAR                                               -->
     <!-- ======================================================================= -->
-    <div class="bg-kalakart-charcoal text-amber-100 text-xs py-2 px-4 border-b border-stone-800 flex flex-wrap justify-between items-center z-50 sticky top-0">
-        <div class="flex items-center space-x-2">
+    <div class="bg-kk-charcoal text-amber-100 text-xs py-2 px-4 border-b border-stone-800 flex flex-wrap justify-between items-center z-50 sticky top-0">
+        <div class="flex items-center space-x-3">
             <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="font-serif-display tracking-widest uppercase text-xs font-bold text-amber-200">KALAKART DESIGN SYSTEM</span>
-            <span class="text-stone-400 hidden sm:inline">&bull; 100% Pixel-Perfect Match with Final Mockup &bull; PS 26090</span>
+            <span class="font-cinzel tracking-widest uppercase text-xs font-bold text-amber-200">KALAKART &bull; SIH 2026 PROTOTYPE</span>
+            <span class="text-stone-500 hidden sm:inline">|</span>
+            <span class="text-stone-400 hidden sm:inline">11-Panel Master UI Sheet (PS 26090 &bull; MoSJE)</span>
         </div>
         
-        <!-- View Modes -->
+        <!-- View Mode Switcher -->
         <div class="flex items-center space-x-2">
-            <button onclick="setDisplayMode('poster')" id="btnModePoster" class="px-3 py-1 rounded-full text-[11px] font-bold bg-kalakart-primary text-white shadow">
-                <i class="fas fa-table-cells-large mr-1"></i> Mockup Showcase Poster
+            <button onclick="scrollToSection('panel-hero')" class="px-2.5 py-0.5 rounded-full text-[10.5px] font-semibold bg-stone-900 border border-stone-700 text-stone-300 hover:text-amber-200">
+                1. Landing
             </button>
-            <button onclick="setDisplayMode('app')" id="btnModeApp" class="px-3 py-1 rounded-full text-[11px] font-semibold text-stone-300 hover:text-white">
-                <i class="fas fa-desktop mr-1"></i> Interactive App Walkthrough
+            <button onclick="scrollToSection('panel-dashboard')" class="px-2.5 py-0.5 rounded-full text-[10.5px] font-semibold bg-stone-900 border border-stone-700 text-stone-300 hover:text-amber-200">
+                2. Dashboard
             </button>
+            <button onclick="scrollToSection('panel-marketplace')" class="px-2.5 py-0.5 rounded-full text-[10.5px] font-semibold bg-stone-900 border border-stone-700 text-stone-300 hover:text-amber-200">
+                3. Marketplace
+            </button>
+            <button onclick="scrollToSection('panel-shield')" class="px-2.5 py-0.5 rounded-full text-[10.5px] font-semibold bg-stone-900 border border-stone-700 text-stone-300 hover:text-amber-200">
+                4. AI Shield
+            </button>
+            <span class="text-[10px] text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-2 py-0.5 rounded-full font-bold">
+                Google Stitch MCP Connected
+            </span>
         </div>
     </div>
 
     <!-- ======================================================================= -->
-    <!-- VIEW A: THE MASTER POSTER GRID (EXACT LAYOUT OF THE SCREENSHOT)         -->
+    <!-- THE 11-PANEL MASTER SHOWCASE BOARD (EXACT LAYOUT OF MOCKUP POSTER)      -->
     <!-- ======================================================================= -->
-    <div id="viewPoster" class="p-4 sm:p-6 max-w-[1700px] mx-auto w-full space-y-6">
-
-        <!-- Top Header as in the mockup -->
-        <div class="bg-kalakart-card border border-kalakart-border rounded-2xl px-6 py-3 flex justify-between items-center shadow-card">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 rounded-full bg-kalakart-primary flex items-center justify-center text-amber-200 shadow-sm">
-                    <i class="fas fa-seedling text-sm"></i>
-                </div>
-                <span class="font-serif-display text-xl font-black tracking-widest text-kalakart-charcoal uppercase">KALAKART</span>
-            </div>
-            <div class="hidden md:flex space-x-6 text-xs font-bold text-kalakart-textPrimary">
-                <span class="text-kalakart-primary border-b-2 border-kalakart-primary pb-0.5">Home</span>
-                <span class="text-kalakart-textMuted hover:text-kalakart-primary cursor-pointer">Marketplace</span>
-                <span class="text-kalakart-textMuted hover:text-kalakart-primary cursor-pointer">Trending</span>
-                <span class="text-kalakart-textMuted hover:text-kalakart-primary cursor-pointer">For Artisans</span>
-                <span class="text-kalakart-textMuted hover:text-kalakart-primary cursor-pointer">About</span>
-            </div>
-            <div class="flex items-center space-x-3">
-                <i class="fas fa-search text-kalakart-textMuted text-xs"></i>
-                <i class="fas fa-bag-shopping text-kalakart-textMuted text-xs"></i>
-                <span class="text-xs font-semibold px-2">Login</span>
-                <button class="kk-button-primary text-xs py-1.5 px-4 shadow-sm">Start Selling</button>
-            </div>
-        </div>
+    <main class="max-w-[1720px] mx-auto w-full p-3 sm:p-5 space-y-6">
 
         <!-- =================================================================== -->
-        <!-- ROW 1: Landing Hero + Dashboard + Add New Product                   -->
+        <!-- ROW 1: Landing Page (5 Cols) + Dashboard (4 Cols) + Add Product (3 Cols)-->
         <!-- =================================================================== -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
             
-            <!-- PANEL 1 (Top Left): Landing Page Hero & Value Props (5 Cols) -->
-            <div class="lg:col-span-5 space-y-4">
+            <!-- PANEL 1: Landing Page (Home) — 5 Columns -->
+            <div id="panel-hero" class="lg:col-span-5 space-y-3">
                 
-                <!-- Crimson Hero Card -->
-                <div class="kk-panel bg-gradient-to-br from-[#6b1414] via-[#7A1C1C] to-[#4a0e0e] text-white p-6 rounded-3xl border border-amber-950/40 relative overflow-hidden shadow-elevated">
-                    <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <!-- Sub-Navbar: Exact Logo & Links from Screenshot -->
+                <div class="bg-kk-card border border-kk-border rounded-xl px-4 py-2 flex justify-between items-center shadow-card">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-7 h-7 rounded-md bg-gradient-to-br from-[#7A1C1C] to-[#5E1414] border border-amber-400/40 flex items-center justify-center text-amber-200">
+                            <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <circle cx="12" cy="12" r="3" fill="#C87D32"/>
+                                <path d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"/>
+                            </svg>
+                        </div>
+                        <span class="font-cinzel text-sm font-bold tracking-widest text-kk-charcoal uppercase">KALAKART</span>
+                    </div>
+
+                    <nav class="hidden md:flex space-x-4 text-[10px] font-bold text-kk-textDark">
+                        <span class="text-kk-primary border-b-2 border-kk-primary pb-0.5 cursor-pointer">Home</span>
+                        <span class="text-kk-textMuted hover:text-kk-primary cursor-pointer" onclick="scrollToSection('panel-marketplace')">Marketplace</span>
+                        <span class="text-kk-textMuted hover:text-kk-primary cursor-pointer" onclick="scrollToSection('panel-trending')">Trending</span>
+                        <span class="text-kk-textMuted hover:text-kk-primary cursor-pointer" onclick="scrollToSection('panel-dashboard')">For Artisans</span>
+                        <span class="text-kk-textMuted hover:text-kk-primary cursor-pointer">About</span>
+                    </nav>
+
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-search text-xs text-kk-textMuted cursor-pointer"></i>
+                        <span class="text-[10px] font-bold text-kk-textDark cursor-pointer">Login</span>
+                        <button onclick="scrollToSection('panel-add-product')" class="kk-btn-primary text-[9px] py-1 px-3">
+                            Start Selling
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero Crimson Banner: With Authentic Kalamkari Art (कला) & 4 Stat Cards -->
+                <div class="kk-panel rounded-2xl overflow-hidden shadow-elevated border border-amber-950/40 relative text-white min-h-[340px] p-5 flex flex-col justify-between"
+                     style="background: radial-gradient(circle at 65% 35%, #882428 0%, #7A1C1C 45%, #350808 100%);">
                     
-                    <div class="relative z-10 space-y-4 text-left">
-                        <h1 class="font-serif-display text-2xl sm:text-3xl font-bold leading-tight text-[#FFFDF9]">
-                            Your Craft.<br/>Your Story.<br/>Your Business.
-                        </h1>
-                        <p class="text-[11px] text-stone-200 leading-relaxed max-w-xs">
-                            Kalakart is an AI-powered business manager and digital marketplace for local Indian artisans.
-                        </p>
-                        
-                        <div class="flex items-center space-x-2 pt-1">
-                            <button class="bg-white text-kalakart-primary font-bold px-4 py-1.5 rounded-full text-[11px] shadow">Start Selling &rarr;</button>
-                            <button class="bg-white/10 text-white font-medium px-4 py-1.5 rounded-full text-[11px] border border-white/20">Explore Crafts</button>
+                    <!-- SVG Kalamkari Tree-of-Life Artwork (कला) Background -->
+                    <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" viewBox="0 0 800 500">
+                        <g stroke="#FDE68A" fill="none" stroke-width="1.5">
+                            <!-- Central Tree of Life Stem -->
+                            <path d="M400 480 L400 150" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M400 420 C340 400 300 360 280 300 C270 270 280 250 300 255 C330 260 350 310 395 350"/>
+                            <path d="M400 420 C460 400 500 360 520 300 C530 270 520 250 500 255 C470 260 450 310 405 350"/>
+                            <!-- Crowning Lotus Flower -->
+                            <g transform="translate(400, 120)">
+                                <path d="M0 25 C-25 -10 -20 -50 0 -80 C20 -50 25 -10 0 25 Z" fill="#7A1C1C" fill-opacity="0.6"/>
+                                <path d="M-5 20 C-40 5 -45 -30 -30 -60 C-15 -45 -5 -15 -5 20 Z"/>
+                                <path d="M5 20 C40 5 45 -30 30 -60 C15 -45 5 -15 5 20 Z"/>
+                                <circle cx="0" cy="-30" r="5" fill="#FDE68A"/>
+                            </g>
+                        </g>
+                    </svg>
+
+                    <!-- Top Row: Left Headline & Right 4 Stat Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 relative z-10 items-start">
+                        <!-- Left Headline -->
+                        <div class="sm:col-span-7 space-y-2">
+                            <h1 class="font-serif text-2xl sm:text-3xl font-bold leading-tight text-white tracking-tight">
+                                Your Craft.<br/>
+                                Your Story.<br/>
+                                <span class="text-amber-200">Your Business.</span>
+                            </h1>
+                            <p class="text-[10px] text-stone-200 font-sans max-w-xs leading-relaxed">
+                                KalaKart is an AI-powered business manager and digital marketplace for local Indian artisans.
+                            </p>
+                            <div class="flex space-x-2 pt-1">
+                                <button onclick="scrollToSection('panel-add-product')" class="bg-[#7A1C1C] hover:bg-[#5E1414] text-white border border-amber-300/30 text-[9.5px] font-bold px-3.5 py-1.5 rounded-full shadow">
+                                    Start Selling &rarr;
+                                </button>
+                                <button onclick="scrollToSection('panel-marketplace')" class="bg-black/30 hover:bg-white/10 text-white border border-white/30 text-[9.5px] font-semibold px-3.5 py-1.5 rounded-full backdrop-blur-sm">
+                                    Explore Crafts
+                                </button>
+                            </div>
                         </div>
 
-                        <!-- 4 Stat Badges on Right -->
-                        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-white/15">
-                            <div class="bg-black/30 p-2 rounded-xl border border-white/10">
-                                <span class="font-serif-display text-base font-bold text-amber-300">₹ 1.2L+</span>
-                                <p class="text-[8px] text-stone-300 uppercase font-semibold">Total Sales (30d)</p>
+                        <!-- Right 4 Floating Stat Cards (Exact from Mockup) -->
+                        <div class="sm:col-span-5 grid grid-cols-2 gap-1.5">
+                            <div class="bg-black/40 backdrop-blur-md border border-white/20 rounded-xl p-2 text-center">
+                                <span class="font-serif text-xs font-bold text-amber-100 block">₹ 1.2L+</span>
+                                <span class="text-[7.5px] text-stone-300 block">Total Sales (30d)</span>
                             </div>
-                            <div class="bg-black/30 p-2 rounded-xl border border-white/10">
-                                <span class="font-serif-display text-base font-bold text-white">532</span>
-                                <p class="text-[8px] text-stone-300 uppercase font-semibold">Orders This Month</p>
+                            <div class="bg-black/40 backdrop-blur-md border border-white/20 rounded-xl p-2 text-center">
+                                <span class="font-serif text-xs font-bold text-amber-100 block">532</span>
+                                <span class="text-[7.5px] text-stone-300 block">Orders This Month</span>
                             </div>
-                            <div class="bg-black/30 p-2 rounded-xl border border-white/10">
-                                <span class="font-serif-display text-xs font-bold text-amber-300 flex items-center">
-                                    <i class="fas fa-headset mr-1 text-[10px] text-emerald-400"></i> AI 24/7
-                                </span>
-                                <p class="text-[8px] text-stone-300 uppercase font-semibold">Assistance</p>
+                            <div class="bg-black/40 backdrop-blur-md border border-white/20 rounded-xl p-2 text-center">
+                                <span class="font-serif text-xs font-bold text-amber-100 block">24/7</span>
+                                <span class="text-[7.5px] text-stone-300 block">AI Assistance</span>
                             </div>
-                            <div class="bg-black/30 p-2 rounded-xl border border-white/10">
-                                <span class="font-serif-display text-base font-bold text-white">2.8K+</span>
-                                <p class="text-[8px] text-stone-300 uppercase font-semibold">Marketplace Reach</p>
+                            <div class="bg-black/40 backdrop-blur-md border border-white/20 rounded-xl p-2 text-center">
+                                <span class="font-serif text-xs font-bold text-amber-100 block">2.8k+</span>
+                                <span class="text-[7.5px] text-stone-300 block">Marketplace Reach</span>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Hero Center Pottery Image -->
-                        <div class="rounded-2xl overflow-hidden h-32 w-full shadow-lg border border-white/20">
-                            <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600" class="w-full h-full object-cover"/>
+                    <!-- Staged Craft Artifacts (Terracotta Pot with Plant, Brass Diya, Carved Wood Box, Brocade) -->
+                    <div class="relative z-10 mt-3 pt-2 border-t border-white/10 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-9 h-9 rounded-lg overflow-hidden border border-amber-400/40">
+                                <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=100" class="w-full h-full object-cover"/>
+                            </div>
+                            <div class="w-9 h-9 rounded-lg overflow-hidden border border-amber-400/40">
+                                <img src="https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=100" class="w-full h-full object-cover"/>
+                            </div>
+                            <div class="w-9 h-9 rounded-lg overflow-hidden border border-amber-400/40">
+                                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=100" class="w-full h-full object-cover"/>
+                            </div>
+                            <div class="w-9 h-9 rounded-lg overflow-hidden border border-amber-400/40">
+                                <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=100" class="w-full h-full object-cover"/>
+                            </div>
                         </div>
+                        <span class="text-[8.5px] text-amber-200 font-semibold">Jaipur Blue Pottery &bull; Moradabad Brass &bull; Banarasi Silk</span>
                     </div>
                 </div>
 
-                <!-- 4 Value Feature Cards -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-left">
-                    <div class="kk-panel p-2.5 space-y-1">
-                        <i class="fas fa-camera text-kalakart-primary text-xs"></i>
-                        <h5 class="text-[10px] font-bold text-kalakart-textPrimary leading-tight">AI Product Listing</h5>
-                        <p class="text-[8px] text-kalakart-textMuted">Photos into listings.</p>
+                <!-- 4 Feature Value Props (Exact 4 Cards from Mockup) -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    <div class="kk-panel p-2 text-center space-y-1">
+                        <div class="w-6 h-6 mx-auto rounded-lg bg-red-100 text-kk-primary flex items-center justify-center text-[10px]">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h4 class="font-serif text-[9.5px] font-bold text-kk-textDark">AI Product Listing</h4>
+                        <p class="text-[7.5px] text-kk-textMuted leading-tight">Turn photos into pro listings.</p>
                     </div>
-                    <div class="kk-panel p-2.5 space-y-1">
-                        <i class="fas fa-scale-balanced text-kalakart-primary text-xs"></i>
-                        <h5 class="text-[10px] font-bold text-kalakart-textPrimary leading-tight">Pricing Assistance</h5>
-                        <p class="text-[8px] text-kalakart-textMuted">Get the right price.</p>
+                    <div class="kk-panel p-2 text-center space-y-1">
+                        <div class="w-6 h-6 mx-auto rounded-lg bg-amber-100 text-kk-accent flex items-center justify-center text-[10px]">
+                            <i class="fas fa-scale-balanced"></i>
+                        </div>
+                        <h4 class="font-serif text-[9.5px] font-bold text-kk-textDark">Pricing Assistance</h4>
+                        <p class="text-[7.5px] text-kk-textMuted leading-tight">Get right price for craft.</p>
                     </div>
-                    <div class="kk-panel p-2.5 space-y-1">
-                        <i class="fas fa-share-nodes text-kalakart-primary text-xs"></i>
-                        <h5 class="text-[10px] font-bold text-kalakart-textPrimary leading-tight">Marketplace Sync</h5>
-                        <p class="text-[8px] text-kalakart-textMuted">Sell across 5 apps.</p>
+                    <div class="kk-panel p-2 text-center space-y-1">
+                        <div class="w-6 h-6 mx-auto rounded-lg bg-emerald-100 text-emerald-800 flex items-center justify-center text-[10px]">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4 class="font-serif text-[9.5px] font-bold text-kk-textDark">Marketplace Sync</h4>
+                        <p class="text-[7.5px] text-kk-textMuted leading-tight">Sell on Amazon, Etsy, ONDC.</p>
                     </div>
-                    <div class="kk-panel p-2.5 space-y-1">
-                        <i class="fas fa-arrow-trend-up text-kalakart-primary text-xs"></i>
-                        <h5 class="text-[10px] font-bold text-kalakart-textPrimary leading-tight">Artisan Growth</h5>
-                        <p class="text-[8px] text-kalakart-textMuted">Build your brand.</p>
+                    <div class="kk-panel p-2 text-center space-y-1">
+                        <div class="w-6 h-6 mx-auto rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center text-[10px]">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="font-serif text-[9.5px] font-bold text-kk-textDark">Artisan Growth</h4>
+                        <p class="text-[7.5px] text-kk-textMuted leading-tight">Build brand &amp; reach buyers.</p>
                     </div>
                 </div>
 
-                <!-- Indian Crafts. Timeless Beauty Row -->
-                <div class="kk-panel p-3.5 space-y-2 text-left">
+                <!-- Category Strip: Indian Crafts. Timeless Beauty -->
+                <div class="kk-panel p-3 space-y-2">
                     <div class="flex justify-between items-center">
-                        <h4 class="font-serif-display text-xs font-bold text-kalakart-textPrimary">Indian Crafts. Timeless Beauty.</h4>
-                        <span class="text-[9px] font-bold text-kalakart-primary">Explore All &rarr;</span>
+                        <div>
+                            <h3 class="font-serif text-xs font-bold text-kk-textDark">Indian Crafts. Timeless Beauty. &bull;</h3>
+                            <p class="text-[8px] text-kk-textMuted">From villages to your home &bull; authentic handmade crafts.</p>
+                        </div>
+                        <button onclick="scrollToSection('panel-marketplace')" class="text-[9px] text-kk-primary font-bold hover:underline">Explore All &rarr;</button>
                     </div>
-                    <div class="grid grid-cols-6 gap-1.5 text-center">
-                        <div class="kk-panel-inner p-1 rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=100" class="h-10 w-full object-cover rounded"/>
-                            <span class="text-[7.5px] font-bold block mt-1">Pottery</span>
+
+                    <div class="grid grid-cols-6 gap-1.5">
+                        <div class="kk-panel-inner p-1 text-center cursor-pointer hover:border-kk-primary">
+                            <div class="h-10 rounded overflow-hidden mb-1"><img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=100" class="w-full h-full object-cover"/></div>
+                            <span class="text-[7.5px] font-bold block truncate">Pottery</span>
                         </div>
-                        <div class="kk-panel-inner p-1 rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=100" class="h-10 w-full object-cover rounded"/>
-                            <span class="text-[7.5px] font-bold block mt-1">Textiles</span>
+                        <div class="kk-panel-inner p-1 text-center cursor-pointer hover:border-kk-primary">
+                            <div class="h-10 rounded overflow-hidden mb-1"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=100" class="w-full h-full object-cover"/></div>
+                            <span class="text-[7.5px] font-bold block truncate">Textiles</span>
                         </div>
-                        <div class="kk-panel-inner p-1 rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=100" class="h-10 w-full object-cover rounded"/>
-                            <span class="text-[7.5px] font-bold block mt-1">Woodwork</span>
+                        <div class="kk-panel-inner p-1 text-center cursor-pointer hover:border-kk-primary">
+                            <div class="h-10 rounded overflow-hidden mb-1"><img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=100" class="w-full h-full object-cover"/></div>
+                            <span class="text-[7.5px] font-bold block truncate">Woodwork</span>
                         </div>
-                        <div class="kk-panel-inner p-1 rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=100" class="h-10 w-full object-cover rounded"/>
-                            <span class="text-[7.5px] font-bold block mt-1">Paintings</span>
+                        <div class="kk-panel-inner p-1 text-center cursor-pointer hover:border-kk-primary">
+                            <div class="h-10 rounded overflow-hidden mb-1"><img src="https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=100" class="w-full h-full object-cover"/></div>
+                            <span class="text-[7.5px] font-bold block truncate">Paintings</span>
                         </div>
-                        <div class="kk-panel-inner p-1 rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?w=100" class="h-10 w-full object-cover rounded"/>
-                            <span class="text-[7.5px] font-bold block mt-1">Metalwork</span>
+                        <div class="kk-panel-inner p-1 text-center cursor-pointer hover:border-kk-primary">
+                            <div class="h-10 rounded overflow-hidden mb-1"><img src="https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=100" class="w-full h-full object-cover"/></div>
+                            <span class="text-[7.5px] font-bold block truncate">Metalwork</span>
                         </div>
-                        <div class="kk-panel-inner p-1 rounded-lg">
-                            <img src="https://images.unsplash.com/photo-1590402494682-cd3fb53b1f70?w=100" class="h-10 w-full object-cover rounded"/>
-                            <span class="text-[7.5px] font-bold block mt-1">Bamboo</span>
+                        <div class="kk-panel-inner p-1 text-center cursor-pointer hover:border-kk-primary">
+                            <div class="h-10 rounded overflow-hidden mb-1"><img src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?w=100" class="w-full h-full object-cover"/></div>
+                            <span class="text-[7.5px] font-bold block truncate">Bamboo</span>
                         </div>
                     </div>
                 </div>
 
             </div>
 
-            <!-- PANEL 2 (Top Center): Artisan Dashboard ("Welcome back, Priya") (4 Cols) -->
-            <div class="lg:col-span-4 kk-panel p-4 text-left space-y-3.5">
-                
-                <div class="flex justify-between items-start border-b border-kalakart-border/60 pb-2.5">
+            <!-- PANEL 2: Artisan Dashboard ("Welcome back, Priya") — 4 Columns -->
+            <div id="panel-dashboard" class="lg:col-span-4 kk-panel p-3.5 space-y-3">
+                <div class="flex justify-between items-start">
                     <div>
-                        <h3 class="font-serif-display text-base font-bold text-kalakart-textPrimary">Welcome back, Priya</h3>
-                        <p class="text-[9.5px] text-kalakart-textMuted">Your craft is creating a big impact!</p>
+                        <h3 class="font-serif text-sm font-bold text-kk-textDark">Welcome back, Priya</h3>
+                        <p class="text-[9px] text-kk-textMuted">Your craft is creating a big impact! &bull; <span class="text-kk-primary font-bold">12 Apr 2026</span></p>
                     </div>
-                    <span class="text-[8.5px] font-semibold bg-kalakart-cardMuted px-2 py-0.5 rounded-full text-kalakart-textMuted">
-                        Today, 12 Apr 2025
-                    </span>
+                    <div class="w-7 h-7 rounded-full bg-amber-200 border border-amber-400 flex items-center justify-center font-bold text-xs text-kk-primary">P</div>
                 </div>
 
-                <!-- 4 Metrics Bar -->
-                <div class="grid grid-cols-4 gap-2">
-                    <div class="kk-panel-inner p-2 rounded-xl text-center">
-                        <span class="text-[8px] uppercase font-bold text-kalakart-textMuted block">Sales</span>
-                        <span class="font-serif-display text-xs font-bold text-kalakart-textPrimary">₹ 42,850</span>
-                        <span class="text-[7.5px] font-bold text-emerald-700 block">+12%</span>
+                <!-- 4 Metrics -->
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="kk-panel-inner p-2">
+                        <span class="text-[7.5px] text-kk-textMuted block uppercase font-bold">Total Sales</span>
+                        <div class="flex items-baseline justify-between">
+                            <span class="font-serif text-xs font-bold text-kk-textDark">₹ 42,850</span>
+                            <span class="text-[8px] font-bold text-emerald-700">+12%</span>
+                        </div>
                     </div>
-                    <div class="kk-panel-inner p-2 rounded-xl text-center">
-                        <span class="text-[8px] uppercase font-bold text-kalakart-textMuted block">Listings</span>
-                        <span class="font-serif-display text-xs font-bold text-kalakart-textPrimary">18</span>
-                        <span class="text-[7.5px] font-bold text-amber-700 block">+2 new</span>
+                    <div class="kk-panel-inner p-2">
+                        <span class="text-[7.5px] text-kk-textMuted block uppercase font-bold">Active Listings</span>
+                        <div class="flex items-baseline justify-between">
+                            <span class="font-serif text-xs font-bold text-kk-textDark">18</span>
+                            <span class="text-[8px] font-bold text-amber-700">+2 new</span>
+                        </div>
                     </div>
-                    <div class="kk-panel-inner p-2 rounded-xl text-center">
-                        <span class="text-[8px] uppercase font-bold text-kalakart-textMuted block">Orders</span>
-                        <span class="font-serif-display text-xs font-bold text-kalakart-textPrimary">7</span>
-                        <span class="text-[7.5px] font-bold text-kalakart-primary block">View &rarr;</span>
+                    <div class="kk-panel-inner p-2">
+                        <span class="text-[7.5px] text-kk-textMuted block uppercase font-bold">Pending Orders</span>
+                        <div class="flex items-baseline justify-between">
+                            <span class="font-serif text-xs font-bold text-kk-textDark">7</span>
+                            <span class="text-[8px] font-bold text-kk-primary">View &rarr;</span>
+                        </div>
                     </div>
-                    <div class="kk-panel-inner p-2 rounded-xl text-center">
-                        <span class="text-[8px] uppercase font-bold text-kalakart-textMuted block">Earnings</span>
-                        <span class="font-serif-display text-xs font-bold text-kalakart-textPrimary">₹ 28,400</span>
-                        <span class="text-[7.5px] font-bold text-emerald-700 block">+15%</span>
+                    <div class="kk-panel-inner p-2">
+                        <span class="text-[7.5px] text-kk-textMuted block uppercase font-bold">Earnings</span>
+                        <div class="flex items-baseline justify-between">
+                            <span class="font-serif text-xs font-bold text-kk-textDark">₹ 28,400</span>
+                            <span class="text-[8px] font-bold text-emerald-700">&uarr; 15%</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Sales Area Chart -->
-                <div class="kk-panel-inner p-2.5 rounded-xl space-y-1">
-                    <div class="flex justify-between text-[9px] font-bold">
-                        <span>Sales Overview</span>
-                        <span class="text-kalakart-primary">Last 7 days &rarr;</span>
+                <!-- Curved Sales Graph -->
+                <div class="kk-panel-inner p-2.5 space-y-1.5">
+                    <div class="flex justify-between items-center text-[10px]">
+                        <span class="font-bold text-kk-textDark">Sales Overview</span>
+                        <span class="text-[8px] text-kk-primary font-bold">Last 7 days &rarr;</span>
                     </div>
-                    <div class="h-16 w-full flex items-end">
-                        <svg viewBox="0 0 300 60" class="w-full h-full overflow-visible">
-                            <path d="M 5,50 Q 50,20 100,35 T 180,15 T 250,25 T 295,8" fill="none" stroke="#7A1C1C" stroke-width="2" stroke-linecap="round" />
-                            <circle cx="295" cy="8" r="3" fill="#C87D32" />
+                    <div class="h-20 w-full">
+                        <svg viewBox="0 0 300 100" class="w-full h-full" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="salesGradM" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#C87D32" stop-opacity="0.35"/>
+                                    <stop offset="100%" stop-color="#C87D32" stop-opacity="0.0"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M0,80 Q40,65 80,70 T160,35 T220,50 T300,20 L300,100 L0,100 Z" fill="url(#salesGradM)"/>
+                            <path d="M0,80 Q40,65 80,70 T160,35 T220,50 T300,20" fill="none" stroke="#7A1C1C" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="160" cy="35" r="3.5" fill="#7A1C1C" stroke="#FFF" stroke-width="1.5"/>
+                            <circle cx="300" cy="20" r="3.5" fill="#C87D32" stroke="#FFF" stroke-width="1.5"/>
                         </svg>
                     </div>
-                    <div class="flex justify-between text-[7px] text-kalakart-textMuted font-mono">
+                    <div class="flex justify-between text-[7px] text-kk-textMuted px-1">
                         <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span>
                     </div>
                 </div>
 
-                <!-- AI Recommendations Box -->
-                <div class="kk-panel-inner p-2.5 rounded-xl space-y-1.5 text-[9px]">
-                    <span class="font-bold text-kalakart-primary flex items-center">
-                        <i class="fas fa-wand-magic-sparkles mr-1 text-kalakart-accent"></i> AI Recommendations
-                    </span>
-                    <div class="space-y-1 text-kalakart-textPrimary">
-                        <p class="flex items-center"><i class="fas fa-fire text-kalakart-accent mr-1.5"></i> "Terracotta" products are trending this week.</p>
-                        <p class="flex items-center"><i class="fas fa-camera text-kalakart-primary mr-1.5"></i> Add 2 more photos for +28% listing visibility.</p>
-                        <p class="flex items-center"><i class="fas fa-arrow-up text-emerald-600 mr-1.5"></i> Increase price for "Handpainted Vases".</p>
+                <!-- AI Recommendations & Recent Orders -->
+                <div class="kk-panel-inner p-2 space-y-1 text-[8px]">
+                    <div class="flex items-center space-x-1 font-bold text-kk-primary">
+                        <i class="fas fa-sparkles text-[9px]"></i> <span>AI Recommendations</span>
+                    </div>
+                    <div class="text-stone-700 space-y-0.5">
+                        <p>&bull; Your 'Terracotta' products are trending this week.</p>
+                        <p>&bull; Add 3 more photos to increase marketplace conversion.</p>
                     </div>
                 </div>
 
-                <!-- Recent Orders List -->
-                <div class="space-y-1.5 text-[9.5px]">
-                    <span class="font-bold text-kalakart-textMuted uppercase text-[8px] block">Recent Orders</span>
-                    <div class="flex justify-between items-center p-1.5 bg-kalakart-card rounded-lg border border-kalakart-border/60">
+                <!-- Recent Orders Rows -->
+                <div class="space-y-1 text-[8px]">
+                    <div class="flex justify-between items-center p-1 rounded bg-kk-panel-inner">
                         <span>Blue Pottery Plate &bull; Aman</span>
-                        <span class="font-bold">₹ 1,200</span>
-                        <span class="text-[8px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.2 rounded">Shipped</span>
+                        <span class="font-bold">₹1,200</span>
+                        <span class="px-1 py-0.2 rounded bg-emerald-100 text-emerald-800 font-bold">Shipped</span>
                     </div>
-                    <div class="flex justify-between items-center p-1.5 bg-kalakart-card rounded-lg border border-kalakart-border/60">
+                    <div class="flex justify-between items-center p-1 rounded bg-kk-panel-inner">
                         <span>Terracotta Vase &bull; Diya</span>
-                        <span class="font-bold">₹ 2,300</span>
-                        <span class="text-[8px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.2 rounded">Processing</span>
+                        <span class="font-bold">₹2,300</span>
+                        <span class="px-1 py-0.2 rounded bg-amber-100 text-amber-800 font-bold">Processing</span>
                     </div>
                 </div>
 
-                <!-- Traditional Miniature Artisan Illustration (From Mockup) -->
-                <div class="kk-panel-inner p-2.5 rounded-xl bg-gradient-to-r from-[#6b1414] to-[#3a0d0d] text-white flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full overflow-hidden border border-amber-300/40 flex-shrink-0">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150" class="w-full h-full object-cover" />
-                    </div>
-                    <div class="text-left">
-                        <p class="font-serif-display text-[10px] italic font-bold text-amber-200">"Crafting a better tomorrow, together..."</p>
-                        <span class="text-[8px] text-stone-300">MoSJE PM Vishwakarma Partner</span>
+                <!-- Bottom Indian Miniature Artisan Card (Exact from Screenshot) -->
+                <div class="rounded-xl p-2.5 text-white relative overflow-hidden border border-amber-400/30"
+                     style="background: radial-gradient(circle, #7A1C1C 0%, #441212 100%);">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-10 h-10 rounded-lg overflow-hidden border border-amber-300/50 flex-shrink-0">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150" class="w-full h-full object-cover"/>
+                        </div>
+                        <div>
+                            <p class="text-[9.5px] font-serif font-bold text-amber-200">"Crafting a better tomorrow, together..."</p>
+                            <span class="text-[7.5px] text-stone-300">MoSJE &bull; PM Vishwakarma</span>
+                        </div>
                     </div>
                 </div>
-
             </div>
 
-            <!-- PANEL 3 (Top Right): Add New Product Screen (3 Cols) -->
-            <div class="lg:col-span-3 kk-panel p-4 text-left space-y-3">
-                <div class="flex items-center space-x-2 border-b border-kalakart-border/60 pb-2">
-                    <span class="text-kalakart-primary font-bold text-xs">&larr;</span>
+            <!-- PANEL 3: Add New Product Form — 3 Columns -->
+            <div id="panel-add-product" class="lg:col-span-3 kk-panel p-3.5 space-y-2.5">
+                <div class="border-b border-kk-border pb-1.5">
+                    <h3 class="font-serif text-xs font-bold text-kk-textDark">&larr; Add New Product</h3>
+                    <p class="text-[8px] text-kk-textMuted">Share your craft with the world. It's simple!</p>
+                </div>
+
+                <!-- Upload Drag & Drop Area -->
+                <div class="border-2 border-dashed border-kk-border rounded-xl p-2.5 text-center space-y-1.5 bg-kk-cardMuted">
+                    <i class="fas fa-camera text-base text-kk-primary"></i>
                     <div>
-                        <h3 class="font-serif-display text-sm font-bold text-kalakart-textPrimary">Add New Product</h3>
-                        <p class="text-[8px] text-kalakart-textMuted">Share your craft with the world.</p>
+                        <span class="text-[9px] font-bold block">Upload Product Photos</span>
+                        <span class="text-[7.5px] text-kk-textMuted">or drag &amp; drop</span>
+                    </div>
+                    <div class="flex justify-center space-x-1.5">
+                        <button class="text-[8px] bg-white border border-kk-border px-2 py-0.5 rounded font-bold">Gallery</button>
+                        <button class="text-[8px] bg-kk-primary text-white px-2 py-0.5 rounded font-bold">Take Photo</button>
                     </div>
                 </div>
 
-                <!-- Upload Dotted Box -->
-                <div class="border border-dashed border-kalakart-border rounded-xl p-3 text-center space-y-1.5 bg-kalakart-cardMuted/40">
-                    <i class="fas fa-cloud-arrow-up text-kalakart-primary text-base"></i>
-                    <p class="text-[9px] font-bold text-kalakart-textPrimary">Upload Product Photos</p>
-                    <div class="flex justify-center space-x-1">
-                        <button class="px-2 py-0.5 rounded bg-white text-[8px] font-bold border border-kalakart-border">From Gallery</button>
-                        <button class="px-2 py-0.5 rounded bg-white text-[8px] font-bold border border-kalakart-border">Take Photo</button>
+                <!-- Voice Story Assistant -->
+                <div class="kk-panel-inner p-2 rounded-xl space-y-1">
+                    <span class="text-[8px] font-bold text-kk-textDark block">Tell your story (Voice)</span>
+                    <p class="text-[7px] text-kk-textMuted">Speak in your regional language.</p>
+                    <div class="flex items-center space-x-1.5">
+                        <button onclick="triggerVoiceAudio()" class="w-6 h-6 rounded-full bg-kk-primary text-white flex items-center justify-center text-[9px]">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <span class="text-[8px] font-mono text-stone-500">Tap to record 00:00</span>
                     </div>
                 </div>
 
-                <!-- Form Inputs -->
-                <div class="space-y-1.5 text-[9.5px]">
+                <!-- Inputs -->
+                <div class="space-y-1.5 text-[8.5px]">
                     <div>
-                        <span class="text-[8.5px] font-bold block text-kalakart-textMuted">Product Name *</span>
-                        <input type="text" value="Handpainted Terracotta Vase" class="w-full bg-kalakart-card border border-kalakart-border rounded-lg p-1.5 text-[9.5px]" />
+                        <label class="font-bold text-kk-textDark block">Product Name *</label>
+                        <input type="text" value="Handpainted Terracotta Vase" class="w-full bg-white border border-kk-border rounded-lg px-2 py-1 text-[9px]"/>
                     </div>
                     <div class="grid grid-cols-2 gap-1.5">
                         <div>
-                            <span class="text-[8.5px] font-bold block text-kalakart-textMuted">Craft Type *</span>
-                            <select class="w-full bg-kalakart-card border border-kalakart-border rounded-lg p-1 text-[9.5px]">
-                                <option>Pottery &amp; Clay</option>
+                            <label class="font-bold text-kk-textDark block">Craft Type *</label>
+                            <select class="w-full bg-white border border-kk-border rounded-lg px-1 py-1 text-[8.5px]">
+                                <option>Pottery &amp; Ceramics</option>
+                                <option>Handloom</option>
                             </select>
                         </div>
                         <div>
-                            <span class="text-[8.5px] font-bold block text-kalakart-textMuted">Material *</span>
-                            <input type="text" value="Terracotta, Clay" class="w-full bg-kalakart-card border border-kalakart-border rounded-lg p-1.5 text-[9.5px]" />
+                            <label class="font-bold text-kk-textDark block">Material *</label>
+                            <input type="text" value="Terracotta, Clay" class="w-full bg-white border border-kk-border rounded-lg px-2 py-1 text-[9px]"/>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-1.5">
                         <div>
-                            <span class="text-[8.5px] font-bold block text-kalakart-textMuted">Location *</span>
-                            <input type="text" value="Jaipur, Rajasthan" class="w-full bg-kalakart-card border border-kalakart-border rounded-lg p-1.5 text-[9.5px]" />
+                            <label class="font-bold text-kk-textDark block">Location</label>
+                            <input type="text" value="Jaipur, Rajasthan" class="w-full bg-white border border-kk-border rounded-lg px-2 py-1 text-[9px]"/>
                         </div>
                         <div>
-                            <span class="text-[8.5px] font-bold block text-kalakart-textMuted">Raw Cost (₹)</span>
-                            <input type="text" value="400" class="w-full bg-kalakart-card border border-kalakart-border rounded-lg p-1.5 text-[9.5px]" />
+                            <label class="font-bold text-kk-textDark block">Price (₹)</label>
+                            <input type="number" value="650" class="w-full bg-white border border-kk-border rounded-lg px-2 py-1 text-[9px] font-bold text-kk-primary"/>
                         </div>
                     </div>
+                    <button onclick="alert('Navigating to AI Studio Enhancement pipeline...')" class="w-full kk-btn-primary py-1.5 mt-1 text-[9px]">
+                        Next &rarr;
+                    </button>
                 </div>
-
-                <!-- Tell Your Story (Voice Section) -->
-                <div class="kk-panel-inner p-2.5 rounded-xl space-y-1.5">
-                    <span class="text-[8.5px] font-bold block text-kalakart-textPrimary">Tell your story (बोलकर बताएं)</span>
-                    <div class="flex items-center space-x-2 bg-kalakart-card p-1.5 rounded-lg border border-kalakart-border">
-                        <div class="w-7 h-7 rounded-full bg-kalakart-primary text-white flex items-center justify-center text-xs shadow flex-shrink-0">
-                            <i class="fas fa-microphone"></i>
-                        </div>
-                        <div class="flex-1">
-                            <span class="text-[8.5px] italic text-kalakart-textMuted block truncate">"Tap to record voice story..."</span>
-                        </div>
-                        <span class="text-[8px] font-mono text-kalakart-textMuted">00:00</span>
-                    </div>
-                </div>
-
-                <button class="w-full kk-button-primary text-xs py-2 shadow-md">
-                    Next &rarr;
-                </button>
             </div>
 
         </div>
 
         <!-- =================================================================== -->
-        <!-- ROW 2: AI Magic + Product Review + Marketplace + Trending           -->
+        <!-- ROW 2: AI Magic Pipeline (4) + Product Review (5) + Trending Crafts (3)-->
         <!-- =================================================================== -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
             
-            <!-- PANEL 4: AI is working its magic ✨ (3 Cols) -->
-            <div class="md:col-span-3 kk-panel p-4 text-center space-y-3">
+            <!-- PANEL 4: AI is working its magic ✨ (4 Cols) -->
+            <div class="lg:col-span-4 kk-panel p-3.5 space-y-2.5">
+                <div class="flex items-center space-x-1.5">
+                    <span class="text-amber-600">✨</span>
+                    <div>
+                        <h3 class="font-serif text-xs font-bold text-kk-textDark">AI is working its magic</h3>
+                        <p class="text-[7.5px] text-kk-textMuted">Turning your raw photo into a marketplace-ready product...</p>
+                    </div>
+                </div>
+
+                <!-- 6-Stage Stepper -->
+                <div class="grid grid-cols-6 gap-1 text-center text-[7px] font-bold">
+                    <div class="space-y-0.5">
+                        <div class="w-4 h-4 mx-auto rounded-full bg-emerald-600 text-white flex items-center justify-center text-[7px]"><i class="fas fa-check"></i></div>
+                        <span>Enhance</span>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div class="w-4 h-4 mx-auto rounded-full bg-emerald-600 text-white flex items-center justify-center text-[7px]"><i class="fas fa-check"></i></div>
+                        <span>Cutout</span>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div class="w-4 h-4 mx-auto rounded-full bg-kk-primary text-white flex items-center justify-center text-[7px] animate-pulse">3</div>
+                        <span class="text-kk-primary">Story</span>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div class="w-4 h-4 mx-auto rounded-full bg-stone-300 text-stone-700 flex items-center justify-center text-[7px]">4</div>
+                        <span class="text-stone-400">Pricing</span>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div class="w-4 h-4 mx-auto rounded-full bg-stone-300 text-stone-700 flex items-center justify-center text-[7px]">5</div>
+                        <span class="text-stone-400">GI Tag</span>
+                    </div>
+                    <div class="space-y-0.5">
+                        <div class="w-4 h-4 mx-auto rounded-full bg-stone-300 text-stone-700 flex items-center justify-center text-[7px]">6</div>
+                        <span class="text-stone-400">Listing</span>
+                    </div>
+                </div>
+
+                <!-- Raw vs AI Enhanced Studio Comparison -->
+                <div class="grid grid-cols-2 gap-2 pt-1 items-center">
+                    <div class="kk-panel-inner p-1.5 text-center">
+                        <div class="h-24 rounded overflow-hidden mb-1 border border-stone-300">
+                            <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=200" class="w-full h-full object-cover filter brightness-90"/>
+                        </div>
+                        <span class="text-[7.5px] font-bold text-stone-500">Your photo</span>
+                    </div>
+                    <div class="kk-panel-inner p-1.5 text-center border-2 border-amber-500/50 bg-amber-50/40">
+                        <div class="h-24 rounded overflow-hidden mb-1 border border-amber-400 shadow">
+                            <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=200" class="w-full h-full object-cover"/>
+                        </div>
+                        <span class="text-[7.5px] font-bold text-kk-primary">✨ AI Enhanced</span>
+                    </div>
+                </div>
+                <p class="text-[7px] text-center text-kk-textMuted italic">This usually takes 1-2 minutes. Keep creating!</p>
+            </div>
+
+            <!-- PANEL 5: Product Details / Listing Review (5 Cols) -->
+            <div class="lg:col-span-5 kk-panel p-3.5 space-y-2">
+                <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-start">
+                    <div class="sm:col-span-5 space-y-1.5">
+                        <div class="h-36 rounded-xl overflow-hidden border border-kk-border">
+                            <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=400" class="w-full h-full object-cover"/>
+                        </div>
+                        <div class="grid grid-cols-4 gap-1">
+                            <div class="h-8 rounded overflow-hidden border border-kk-primary"><img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=80" class="w-full h-full object-cover"/></div>
+                            <div class="h-8 rounded overflow-hidden border border-stone-300"><img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=80" class="w-full h-full object-cover"/></div>
+                            <div class="h-8 rounded overflow-hidden border border-stone-300"><img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=80" class="w-full h-full object-cover"/></div>
+                            <div class="h-8 rounded bg-stone-200 flex items-center justify-center text-[8px] font-bold text-stone-600">+3</div>
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-7 space-y-1.5">
+                        <div>
+                            <h4 class="font-serif text-xs font-bold text-kk-textDark">Handpainted Blue Pottery Plate</h4>
+                            <span class="text-[8px] text-kk-textMuted block">By Rukmini Art &bull; Jaipur, Rajasthan</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="kk-chip text-[7px]">Handmade</span>
+                            <span class="kk-chip text-[7px]">Eco-friendly</span>
+                            <span class="kk-chip text-[7px] bg-amber-100 text-amber-900">Traditional</span>
+                        </div>
+                        <p class="text-[7.5px] text-kk-textMuted leading-tight">
+                            Made using the 600-year-old technique of Jaipur's blue pottery with natural mineral oxides.
+                        </p>
+                        <div class="kk-panel-inner p-1.5 grid grid-cols-3 gap-1 text-center">
+                            <div><span class="text-[6.5px] block uppercase">Retail Price</span><span class="font-serif text-[10px] font-bold text-kk-primary">₹ 1,250</span></div>
+                            <div><span class="text-[6.5px] block uppercase">Wholesale/B2B</span><span class="font-serif text-[10px] font-bold">₹ 950</span></div>
+                            <div><span class="text-[6.5px] block uppercase">Material Cost</span><span class="font-serif text-[10px] font-bold text-stone-500">₹ 400</span></div>
+                        </div>
+                        <div class="flex space-x-1.5 pt-1">
+                            <button class="kk-btn-outline text-[8px] py-1 px-2.5">Edit</button>
+                            <button class="kk-btn-outline text-[8px] py-1 px-2.5">Save</button>
+                            <button onclick="alert('Published to 5 commercial marketplaces!')" class="kk-btn-primary text-[8px] py-1 px-3">Publish</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PANEL 6: Trending Crafts Section (3 Cols) -->
+            <div id="panel-trending" class="lg:col-span-3 kk-panel p-3.5 space-y-2">
                 <div>
-                    <h4 class="font-serif-display text-sm font-bold text-kalakart-textPrimary">AI is working its magic ✨</h4>
-                    <p class="text-[8.5px] text-kalakart-textMuted">Turning raw photo into marketplace-ready product...</p>
+                    <h3 class="font-serif text-xs font-bold text-kk-textDark">Trending Crafts</h3>
+                    <p class="text-[7.5px] text-kk-textMuted">Discover what's gaining attention in the craft world.</p>
                 </div>
 
-                <!-- 6 Step Indicator -->
-                <div class="grid grid-cols-6 gap-1">
-                    <span class="w-5 h-5 rounded-full bg-kalakart-primary text-white text-[8px] font-bold flex items-center justify-center mx-auto">1</span>
-                    <span class="w-5 h-5 rounded-full bg-kalakart-primary text-white text-[8px] font-bold flex items-center justify-center mx-auto">2</span>
-                    <span class="w-5 h-5 rounded-full bg-kalakart-primary text-white text-[8px] font-bold flex items-center justify-center mx-auto">3</span>
-                    <span class="w-5 h-5 rounded-full bg-kalakart-primary text-white text-[8px] font-bold flex items-center justify-center mx-auto">4</span>
-                    <span class="w-5 h-5 rounded-full bg-kalakart-primary text-white text-[8px] font-bold flex items-center justify-center mx-auto">5</span>
-                    <span class="w-5 h-5 rounded-full bg-kalakart-primary text-white text-[8px] font-bold flex items-center justify-center mx-auto">6</span>
-                </div>
-
-                <!-- Comparison Photos -->
-                <div class="grid grid-cols-2 gap-2 pt-1">
-                    <div class="kk-panel-inner p-1 rounded-xl">
-                        <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=200" class="h-24 w-full object-cover rounded"/>
-                        <span class="text-[7.5px] font-bold text-kalakart-textMuted block mt-1">Your photo</span>
-                    </div>
-                    <div class="kk-panel-inner p-1 rounded-xl border border-kalakart-accent bg-amber-50/40">
-                        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=200" class="h-24 w-full object-contain rounded"/>
-                        <span class="text-[7.5px] font-bold text-kalakart-primary block mt-1">AI enhanced &bull; GI Seal</span>
-                    </div>
-                </div>
-
-                <p class="text-[8px] text-kalakart-textMuted italic">Takes 1-2 minutes. Keep creating!</p>
-            </div>
-
-            <!-- PANEL 5: Handpainted Blue Pottery Listing & Feeds (3 Cols) -->
-            <div class="md:col-span-3 kk-panel p-4 text-left space-y-3">
-                <div class="flex space-x-2">
-                    <div class="w-20 h-20 rounded-xl overflow-hidden bg-stone-100 flex-shrink-0 border border-kalakart-border">
-                        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=300" class="w-full h-full object-cover"/>
-                    </div>
-                    <div>
-                        <h4 class="font-serif-display text-xs font-bold text-kalakart-textPrimary leading-tight">Handpainted Blue Pottery Plate</h4>
-                        <span class="text-[8px] text-kalakart-textMuted block">By Rukmini Art &bull; Jaipur</span>
-                        <div class="flex space-x-1 mt-1">
-                            <span class="kk-chip text-[7px] py-0.5 px-1.5">Handmade</span>
-                            <span class="kk-chip text-[7px] py-0.5 px-1.5">Traditional</span>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="text-[8.5px] text-kalakart-textMuted leading-snug">
-                    Beautifully handpainted blue pottery plate with floral motifs. 60-year old Jaipur technique.
-                </p>
-
-                <!-- Pricing 3-Box -->
-                <div class="grid grid-cols-3 gap-1.5 kk-panel-inner p-2 rounded-xl text-center">
-                    <div>
-                        <span class="text-[7px] text-kalakart-textMuted block uppercase">Suggested</span>
-                        <strong class="font-serif-display text-xs text-kalakart-primary">₹ 1,250</strong>
-                    </div>
-                    <div>
-                        <span class="text-[7px] text-kalakart-textMuted block uppercase">B2B/Wholesale</span>
-                        <strong class="font-serif-display text-xs text-kalakart-textPrimary">₹ 950</strong>
-                    </div>
-                    <div>
-                        <span class="text-[7px] text-kalakart-textMuted block uppercase">Cost</span>
-                        <strong class="font-serif-display text-xs text-kalakart-textMuted">₹ 400</strong>
-                    </div>
-                </div>
-
-                <!-- Checklist -->
-                <div class="space-y-0.5 text-[8px] text-kalakart-textPrimary">
-                    <div class="flex items-center space-x-1"><i class="fas fa-check text-emerald-600 text-[8px]"></i> <span>Product Title &amp; Tags ✓</span></div>
-                    <div class="flex items-center space-x-1"><i class="fas fa-check text-emerald-600 text-[8px]"></i> <span>MoSJE GI Certificate Attached ✓</span></div>
-                    <div class="flex items-center space-x-1"><i class="fas fa-check text-emerald-600 text-[8px]"></i> <span>Dimensions &amp; Weight Configured ✓</span></div>
-                </div>
-
-                <button class="w-full kk-button-primary text-xs py-1.5 shadow">
-                    Publish to 5 Channels
-                </button>
-            </div>
-
-            <!-- PANEL 6: Marketplace Buyer View (3 Cols) -->
-            <div class="md:col-span-3 kk-panel p-4 text-left space-y-3">
-                <div>
-                    <h4 class="font-serif-display text-sm font-bold text-kalakart-textPrimary">Marketplace</h4>
-                    <p class="text-[8px] text-kalakart-textMuted">Authentic Indian crafts. Direct from artisans.</p>
-                </div>
-
-                <div class="relative">
-                    <i class="fas fa-search absolute left-2.5 top-2.5 text-kalakart-textMuted text-[10px]"></i>
-                    <input type="text" placeholder="Search crafts..." class="w-full bg-kalakart-cardMuted border border-kalakart-border rounded-xl pl-7 pr-2 py-1.5 text-[9px]" />
-                </div>
-
-                <!-- 2 Products Preview -->
-                <div class="grid grid-cols-2 gap-2">
-                    <div class="kk-panel-inner p-1.5 rounded-xl space-y-1">
-                        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=200" class="h-16 w-full object-cover rounded-lg"/>
-                        <span class="text-[8.5px] font-bold block truncate">Terracotta Vase</span>
-                        <div class="flex justify-between items-baseline">
-                            <span class="text-[9px] font-bold text-kalakart-primary">₹ 1,200</span>
-                            <span class="text-[7.5px] text-kalakart-textMuted">Jaipur</span>
-                        </div>
-                    </div>
-                    <div class="kk-panel-inner p-1.5 rounded-xl space-y-1">
-                        <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=200" class="h-16 w-full object-cover rounded-lg"/>
-                        <span class="text-[8.5px] font-bold block truncate">Bandhani Dupatta</span>
-                        <div class="flex justify-between items-baseline">
-                            <span class="text-[9px] font-bold text-kalakart-primary">₹ 2,800</span>
-                            <span class="text-[7.5px] text-kalakart-textMuted">Varanasi</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="kk-panel-inner p-1.5 rounded-xl space-y-1">
-                    <div class="flex justify-between items-center text-[8.5px]">
-                        <span>Brass Diya Set &bull; Moradabad</span>
-                        <strong class="text-kalakart-primary">₹ 1,650</strong>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PANEL 7: Trending Crafts ("शिल्प रुझान") (3 Cols) -->
-            <div class="md:col-span-3 kk-panel p-4 text-left space-y-3">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <h4 class="font-serif-display text-sm font-bold text-kalakart-textPrimary">Trending Crafts</h4>
-                        <p class="text-[8px] text-kalakart-textMuted">Discover market demand spikes.</p>
-                    </div>
-                    <span class="text-[8px] font-bold bg-kalakart-primary text-white px-2 py-0.5 rounded-full">🔥 Trends</span>
+                <div class="flex flex-wrap gap-1">
+                    <span class="px-1.5 py-0.5 rounded-full text-[7.5px] font-bold bg-kk-primary text-white">Trending Now</span>
+                    <span class="px-1.5 py-0.5 rounded-full text-[7.5px] font-bold bg-kk-cardMuted text-kk-textMuted">Rising Crafts</span>
+                    <span class="px-1.5 py-0.5 rounded-full text-[7.5px] font-bold bg-kk-cardMuted text-kk-textMuted">Viral Designs</span>
                 </div>
 
                 <div class="space-y-1.5">
-                    <div class="kk-panel-inner p-2 rounded-xl flex items-center space-x-2">
-                        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=100" class="w-9 h-9 object-cover rounded-lg"/>
+                    <div class="flex items-center space-x-2 p-1.5 rounded-lg bg-kk-panel-inner">
+                        <div class="w-8 h-8 rounded overflow-hidden flex-shrink-0"><img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=80" class="w-full h-full object-cover"/></div>
                         <div class="flex-1 min-w-0">
-                            <span class="text-[9px] font-bold text-kalakart-textPrimary block truncate">Blue Pottery</span>
-                            <span class="text-[7.5px] text-kalakart-textMuted block">Jaipur &bull; ₹1,250–₹2,400</span>
+                            <span class="text-[8px] font-bold block truncate">Blue Pottery</span>
+                            <span class="text-[7px] text-emerald-700 font-bold block">&bull; Jaipur, Rajasthan</span>
                         </div>
-                        <span class="text-[8px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded">+88%</span>
+                        <span class="text-[7px] bg-red-100 text-kk-primary font-bold px-1 rounded">🔥 #1</span>
                     </div>
 
-                    <div class="kk-panel-inner p-2 rounded-xl flex items-center space-x-2">
-                        <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=100" class="w-9 h-9 object-cover rounded-lg"/>
+                    <div class="flex items-center space-x-2 p-1.5 rounded-lg bg-kk-panel-inner">
+                        <div class="w-8 h-8 rounded overflow-hidden flex-shrink-0"><img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=80" class="w-full h-full object-cover"/></div>
                         <div class="flex-1 min-w-0">
-                            <span class="text-[9px] font-bold text-kalakart-textPrimary block truncate">Handloom Silk</span>
-                            <span class="text-[7.5px] text-kalakart-textMuted block">Varanasi &bull; ₹2,800–₹5,500</span>
+                            <span class="text-[8px] font-bold block truncate">Handloom Textiles</span>
+                            <span class="text-[7px] text-emerald-700 font-bold block">&bull; Varanasi, UP</span>
                         </div>
-                        <span class="text-[8px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded">+84%</span>
+                        <span class="text-[7px] bg-amber-100 text-amber-900 font-bold px-1 rounded">Rising</span>
                     </div>
 
-                    <div class="kk-panel-inner p-2 rounded-xl flex items-center space-x-2">
-                        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=100" class="w-9 h-9 object-cover rounded-lg"/>
+                    <div class="flex items-center space-x-2 p-1.5 rounded-lg bg-kk-panel-inner">
+                        <div class="w-8 h-8 rounded overflow-hidden flex-shrink-0"><img src="https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=80" class="w-full h-full object-cover"/></div>
                         <div class="flex-1 min-w-0">
-                            <span class="text-[9px] font-bold text-kalakart-textPrimary block truncate">Terracotta Art</span>
-                            <span class="text-[7.5px] text-kalakart-textMuted block">Gorakhpur &bull; ₹450–₹1,200</span>
+                            <span class="text-[8px] font-bold block truncate">Terracotta Art</span>
+                            <span class="text-[7px] text-emerald-700 font-bold block">&bull; Kumhar Cluster</span>
                         </div>
-                        <span class="text-[8px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.5 rounded">+96%</span>
+                        <span class="text-[7px] bg-purple-100 text-purple-900 font-bold px-1 rounded">Popular</span>
                     </div>
                 </div>
             </div>
@@ -668,186 +743,305 @@
         </div>
 
         <!-- =================================================================== -->
-        <!-- ROW 3: Bargaining Shield + Kala Saathi + Orders + Profile & PWA     -->
+        <!-- ROW 3: Bargaining Shield (3) + Kala Saathi (3) + Orders (3) + Profile (3)-->
         <!-- =================================================================== -->
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
             
-            <!-- PANEL 8: Bargaining Shield (3 Cols) -->
-            <div class="md:col-span-3 kk-panel p-4 text-left space-y-3">
-                <div class="flex items-center space-x-1.5">
-                    <i class="fas fa-shield-halved text-kalakart-primary text-xs"></i>
-                    <div>
-                        <h4 class="font-serif-display text-sm font-bold text-kalakart-textPrimary">Bargaining Shield</h4>
-                        <p class="text-[8px] text-kalakart-textMuted">Get the right price. Stay confident.</p>
-                    </div>
-                </div>
-
-                <div class="flex items-center space-x-3">
-                    <div class="flex-1">
-                        <span class="text-[8px] font-bold text-kalakart-textMuted block">Buyer's Offer (₹)</span>
-                        <input type="text" value="800" class="w-full bg-kalakart-card border border-kalakart-border rounded-lg p-1.5 font-bold text-xs" />
-                    </div>
-                    <!-- Circular Dial Badge -->
-                    <div class="w-16 h-16 rounded-full bg-[#7A1C1C] text-white flex flex-col items-center justify-center text-center p-1 shadow">
-                        <span class="text-[7px] uppercase tracking-wider text-amber-200 font-bold">Analysis</span>
-                        <span class="font-serif-display text-[9px] font-black">Too Low</span>
-                        <span class="text-[6.5px] leading-tight text-stone-200">-36%</span>
-                    </div>
-                </div>
-
-                <!-- Price Breakdown -->
-                <div class="kk-panel-inner p-2 rounded-xl text-[8px] space-y-1">
-                    <div class="flex justify-between"><span>Material Cost</span> <strong>₹ 400</strong></div>
-                    <div class="flex justify-between"><span>Production Effort</span> <strong>₹ 350</strong></div>
-                    <div class="flex justify-between text-kalakart-primary font-bold"><span>Suggested Price</span> <strong>₹ 1,250</strong></div>
-                    <div class="flex justify-between border-t border-kalakart-border pt-0.5"><span>Profit Margin</span> <strong class="text-emerald-700">25%</strong></div>
-                </div>
-
-                <div class="bg-red-50 border border-red-200 p-2 rounded-lg text-[8px] text-red-800">
-                    <i class="fas fa-triangle-exclamation mr-1"></i> You're underpriced. Consider <strong>₹1,100</strong> or above.
-                </div>
-            </div>
-
-            <!-- PANEL 9: Kala Saathi (3 Cols) -->
-            <div class="md:col-span-3 kk-panel p-4 text-left space-y-3">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 rounded-full overflow-hidden border border-kalakart-accent flex-shrink-0">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150" class="w-full h-full object-cover"/>
-                    </div>
-                    <div>
-                        <h4 class="font-serif-display text-sm font-bold text-kalakart-textPrimary">Kala Saathi (कला साथी)</h4>
-                        <p class="text-[8px] text-kalakart-textMuted">Your Voice AI Business Companion</p>
-                    </div>
-                </div>
-
-                <!-- Hindi Greeting Speech Card -->
-                <div class="kk-panel-inner p-2 rounded-xl font-indic text-[8.5px] text-kalakart-textPrimary leading-relaxed">
-                    "नमस्ते! मैं हूँ आपकी कला साथी। मुझसे बिक्री की टिप्स पूछें &mdash; जैसे कीमत, ऑर्डर या PM Vishwakarma सरकारी योजनाएं।"
-                </div>
-
-                <button class="w-full kk-button-primary text-xs py-1.5 shadow flex items-center justify-center space-x-1.5">
-                    <i class="fas fa-microphone text-[10px]"></i>
-                    <span>Tap to speak (माइक दबाएं)</span>
-                </button>
-
-                <div class="space-y-1 text-[8px]">
-                    <div class="p-1.5 bg-kalakart-card rounded-lg border border-kalakart-border flex justify-between">
-                        <span>How to set the right price?</span> <i class="fas fa-chevron-right text-stone-400"></i>
-                    </div>
-                    <div class="p-1.5 bg-kalakart-card rounded-lg border border-kalakart-border flex justify-between">
-                        <span>Government schemes for artisans</span> <i class="fas fa-chevron-right text-stone-400"></i>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PANEL 10: Orders & Earnings (3 Cols) -->
-            <div class="md:col-span-3 kk-panel p-4 text-left space-y-3">
+            <!-- PANEL 7: Bargaining Shield ("सौदा रक्षक") (3 Cols) -->
+            <div id="panel-shield" class="lg:col-span-3 kk-panel p-3.5 space-y-2">
                 <div class="flex justify-between items-center">
                     <div>
-                        <h4 class="font-serif-display text-sm font-bold text-kalakart-textPrimary">Orders &amp; Earnings</h4>
-                        <p class="text-[8px] text-kalakart-textMuted">Direct P2P UPI settlements</p>
+                        <h3 class="font-serif text-xs font-bold text-kk-textDark">Bargaining Shield</h3>
+                        <p class="text-[7.5px] text-kk-textMuted">Get the right price. Stay confident.</p>
+                    </div>
+                    <i class="fas fa-shield-halved text-xs text-kk-primary"></i>
+                </div>
+
+                <div class="flex space-x-1.5">
+                    <input id="shield-input" type="number" value="800" oninput="runShieldCalc()" class="w-2/3 bg-white border border-kk-border rounded-lg px-2 py-1 text-[9px] font-bold"/>
+                    <button onclick="runShieldCalc()" class="w-1/3 kk-btn-primary text-[8px] py-1">Check &rarr;</button>
+                </div>
+
+                <!-- Circular Status Gauge -->
+                <div id="shield-gauge" class="p-2 rounded-xl text-center space-y-1 bg-red-50 border border-red-200">
+                    <div class="w-12 h-12 mx-auto rounded-full border-4 border-red-600 flex items-center justify-center">
+                        <span id="shield-status" class="text-red-700 font-bold text-[9px]">Too Low</span>
+                    </div>
+                    <p id="shield-desc" class="text-[7px] text-red-700 font-medium">The offer is 31% below suggested price.</p>
+                </div>
+
+                <div class="kk-panel-inner p-1.5 text-[7.5px] space-y-0.5">
+                    <div class="flex justify-between"><span>Material Cost:</span> <strong>₹ 400</strong></div>
+                    <div class="flex justify-between"><span>Production Effort:</span> <strong>₹ 350</strong></div>
+                    <div class="flex justify-between"><span>Suggested Price:</span> <strong class="text-kk-primary">₹ 1,200</strong></div>
+                    <div class="flex justify-between"><span>Profit Margin:</span> <strong>25%</strong></div>
+                </div>
+                <p class="text-[7px] text-amber-800 bg-amber-50 p-1 rounded border border-amber-200 text-center">
+                    ⚠️ You're underpriced. Consider ₹1,100 or above.
+                </p>
+            </div>
+
+            <!-- PANEL 8: Kala Saathi (Voice AI Companion) (3 Cols) -->
+            <div id="panel-kala-saathi" class="lg:col-span-3 kk-panel p-3.5 space-y-2">
+                <div class="flex items-center space-x-2">
+                    <div class="w-7 h-7 rounded-full overflow-hidden border border-kk-primary">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" class="w-full h-full object-cover"/>
+                    </div>
+                    <div>
+                        <h3 class="font-serif text-xs font-bold text-kk-textDark">Kala Saathi</h3>
+                        <span class="text-[7.5px] text-emerald-700 font-bold">&bull; Your AI Companion</span>
                     </div>
                 </div>
 
-                <!-- 3 Stats -->
-                <div class="grid grid-cols-3 gap-1 kk-panel-inner p-2 rounded-xl text-center">
-                    <div>
-                        <span class="text-[7px] text-kalakart-textMuted block uppercase">Earnings</span>
-                        <strong class="font-serif-display text-xs text-kalakart-textPrimary">₹ 28,400</strong>
-                    </div>
-                    <div>
-                        <span class="text-[7px] text-kalakart-textMuted block uppercase">Pending</span>
-                        <strong class="font-serif-display text-xs text-kalakart-textPrimary">₹ 6,800</strong>
-                    </div>
-                    <div>
-                        <span class="text-[7px] text-kalakart-textMuted block uppercase">Completed</span>
-                        <strong class="font-serif-display text-xs text-emerald-700">12 sales</strong>
-                    </div>
+                <!-- Animated Waveform -->
+                <div class="h-6 flex items-center justify-center space-x-1 bg-kk-panel-inner rounded-lg py-1">
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <span class="text-[7.5px] text-kk-textMuted font-devanagari ml-1 font-bold">आवाज़ सुनें...</span>
                 </div>
 
-                <!-- Marketplace Breakup -->
-                <div class="kk-panel-inner p-2 rounded-xl text-[8px] space-y-0.5">
-                    <span class="font-bold text-kalakart-textMuted uppercase text-[7px] block">Marketplace Share</span>
-                    <div class="flex justify-between"><span>Etsy Global</span> <strong>35%</strong></div>
-                    <div class="flex justify-between"><span>Amazon Karigar</span> <strong>28%</strong></div>
-                    <div class="flex justify-between"><span>Flipkart Samarth</span> <strong>22%</strong></div>
-                    <div class="flex justify-between"><span>Own Website</span> <strong>10%</strong></div>
-                    <div class="flex justify-between"><span>ONDC Network</span> <strong>5%</strong></div>
+                <!-- Hindi Speech Card -->
+                <div class="p-2 rounded-lg bg-kk-panel-inner text-[8px] font-devanagari space-y-0.5">
+                    <span class="text-kk-primary font-bold block">नमस्ते! मैं हूँ आपकी कला साथी।</span>
+                    <p class="text-stone-700 leading-tight">
+                        "आज मुझसे हिंदी में बात करें — जैसे कीमत, ऑर्डर, सरकारी योजनाओं या मार्केटिंग टिप्स"
+                    </p>
+                </div>
+
+                <div class="flex justify-between items-center">
+                    <button onclick="triggerVoiceAudio()" class="kk-btn-primary text-[8px] py-1 px-3">
+                        <i class="fas fa-microphone mr-1"></i> Tap to speak
+                    </button>
+                    <span class="text-[7px] text-kk-textMuted">Hindi &bull; English &bull; Regional</span>
+                </div>
+
+                <div class="space-y-1 text-[7px]">
+                    <span class="font-bold text-stone-500 uppercase block">Popular Questions:</span>
+                    <div class="p-1 rounded bg-kk-panel-inner hover:border-kk-primary cursor-pointer">❓ How to set the right price?</div>
+                    <div class="p-1 rounded bg-kk-panel-inner hover:border-kk-primary cursor-pointer">🏛️ Government schemes for artisans</div>
                 </div>
             </div>
 
-            <!-- PANEL 11: Rukmini Art Profile & Mobile PWA Preview (3 Cols) -->
-            <div class="md:col-span-3 kk-panel p-4 text-left space-y-3">
+            <!-- PANEL 9: Orders & Earnings (3 Cols) -->
+            <div class="lg:col-span-3 kk-panel p-3.5 space-y-2">
+                <div class="flex justify-between items-center">
+                    <h3 class="font-serif text-xs font-bold text-kk-textDark">Orders &amp; Earnings</h3>
+                    <span class="text-[7.5px] text-kk-primary font-bold">Overview &rarr;</span>
+                </div>
+
+                <div class="grid grid-cols-3 gap-1 text-center">
+                    <div class="kk-panel-inner p-1">
+                        <span class="text-[6.5px] text-stone-500 block">Total Earnings</span>
+                        <span class="font-serif text-[10px] font-bold text-kk-textDark">₹ 28,400</span>
+                    </div>
+                    <div class="kk-panel-inner p-1">
+                        <span class="text-[6.5px] text-stone-500 block">Pending</span>
+                        <span class="font-serif text-[10px] font-bold text-amber-700">₹ 6,800</span>
+                    </div>
+                    <div class="kk-panel-inner p-1">
+                        <span class="text-[6.5px] text-stone-500 block">Completed</span>
+                        <span class="font-serif text-[10px] font-bold text-emerald-700">12 sales</span>
+                    </div>
+                </div>
+
+                <!-- Marketplace Share Bars -->
+                <div class="space-y-1 text-[7.5px]">
+                    <span class="font-bold text-stone-500 uppercase block">Marketplace Share:</span>
+                    <div class="flex justify-between"><span>Etsy Global</span> <strong>35%</strong></div>
+                    <div class="w-full bg-stone-200 h-1 rounded-full overflow-hidden"><div class="bg-amber-600 h-full w-[35%]"></div></div>
+                    <div class="flex justify-between"><span>Amazon Karigar</span> <strong>28%</strong></div>
+                    <div class="w-full bg-stone-200 h-1 rounded-full overflow-hidden"><div class="bg-kk-primary h-full w-[28%]"></div></div>
+                    <div class="flex justify-between"><span>Flipkart Samarth</span> <strong>22%</strong></div>
+                    <div class="w-full bg-stone-200 h-1 rounded-full overflow-hidden"><div class="bg-blue-600 h-full w-[22%]"></div></div>
+                </div>
+            </div>
+
+            <!-- PANEL 10: Rukmini Art Profile & Mobile App Preview (3 Cols) -->
+            <div class="lg:col-span-3 kk-panel p-3.5 space-y-2">
                 <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 rounded-xl overflow-hidden border border-kalakart-primary flex-shrink-0">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150" class="w-full h-full object-cover"/>
+                    <div class="w-9 h-9 rounded-xl overflow-hidden border border-kk-primary flex-shrink-0">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" class="w-full h-full object-cover"/>
                     </div>
                     <div>
-                        <h4 class="font-serif-display text-xs font-bold text-kalakart-textPrimary">Rukmini Art</h4>
-                        <span class="text-[8px] text-kalakart-textMuted block">Jaipur &bull; 4.9 ★ (120+ sales)</span>
+                        <h4 class="font-serif text-[10.5px] font-bold text-kk-textDark">Rukmini Art</h4>
+                        <span class="text-[7.5px] text-kk-textMuted block">Jaipur &bull; 4.9 ★ (120+ sales)</span>
+                        <span class="text-[7px] text-amber-800 bg-amber-100 px-1 rounded font-bold">GI: Jaipur Blue Pottery</span>
                     </div>
                 </div>
 
-                <div class="kk-panel-inner p-2 rounded-xl text-[8px] space-y-1">
-                    <span class="text-kalakart-textMuted block">GI Tag: <strong>Jaipur Blue Pottery</strong></span>
-                    <span class="text-kalakart-primary font-bold block cursor-pointer">View GI Certificate &rarr;</span>
-                </div>
-
-                <!-- Mini Mobile Phone Card Frame -->
-                <div class="border border-stone-800 rounded-xl p-2 bg-kalakart-cardMuted text-center space-y-1">
-                    <span class="text-[7.5px] uppercase font-bold text-kalakart-textMuted block">Artisan Mobile App (PWA)</span>
-                    <div class="h-14 rounded-lg bg-stone-900 text-white p-1 flex flex-col justify-between text-[7px]">
-                        <div class="flex justify-between text-stone-400"><span>09:41</span> <span>5G ●</span></div>
-                        <span class="text-amber-300 font-bold">KalaKart Voice PWA</span>
-                        <div class="flex justify-around text-stone-400 text-[6px]"><span>Studio</span><span>Bargain</span><span>Orders</span></div>
+                <div class="kk-panel-inner p-1.5 text-[7px] space-y-0.5">
+                    <span class="font-bold text-kk-textDark block">Artisan Mobile App (PWA) Preview:</span>
+                    <div class="bg-stone-900 text-white rounded-lg p-1.5 flex justify-between items-center text-[6.5px]">
+                        <span>09:41 ● 5G</span>
+                        <span class="text-amber-200 font-bold">KalaKart Voice</span>
+                        <span>Orders (3)</span>
                     </div>
                 </div>
             </div>
 
         </div>
 
-    </div>
+        <!-- =================================================================== -->
+        <!-- ROW 4: PANEL 11 — Marketplace Catalog (Full Grid with 6 Products)   -->
+        <!-- =================================================================== -->
+        <div id="panel-marketplace" class="kk-panel p-4 sm:p-5 space-y-3">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <div>
+                    <h3 class="font-serif text-base font-bold text-kk-textDark">Marketplace</h3>
+                    <p class="text-[9px] text-kk-textMuted">Authentic Indian crafts. Direct from master artisans.</p>
+                </div>
+                <div class="flex items-center space-x-1.5">
+                    <button class="kk-chip active text-[8px]">All</button>
+                    <button class="kk-chip text-[8px]">Pottery</button>
+                    <button class="kk-chip text-[8px]">Textiles</button>
+                    <button class="kk-chip text-[8px]">Woodwork</button>
+                    <button class="kk-chip text-[8px]">Paintings</button>
+                    <button class="kk-chip text-[8px]">Jewellery</button>
+                </div>
+            </div>
+
+            <!-- 6 Products Grid Matching Screenshot Exactly -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                <div class="kk-panel-inner p-2 space-y-1.5 hover:border-kk-primary cursor-pointer">
+                    <div class="h-28 rounded-lg overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=200" class="w-full h-full object-cover"/>
+                        <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[7px] px-1.5 py-0.2 rounded">GI Tagged</span>
+                    </div>
+                    <h4 class="font-serif text-[9.5px] font-bold text-kk-textDark truncate">Terracotta Vase</h4>
+                    <span class="text-[9px] font-bold text-kk-primary block">₹ 1,200</span>
+                    <span class="text-[7.5px] text-kk-textMuted block">Jaipur &bull; Meera Kumawat</span>
+                </div>
+
+                <div class="kk-panel-inner p-2 space-y-1.5 hover:border-kk-primary cursor-pointer">
+                    <div class="h-28 rounded-lg overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=200" class="w-full h-full object-cover"/>
+                        <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[7px] px-1.5 py-0.2 rounded">Silk</span>
+                    </div>
+                    <h4 class="font-serif text-[9.5px] font-bold text-kk-textDark truncate">Bandhani Dupatta</h4>
+                    <span class="text-[9px] font-bold text-kk-primary block">₹ 2,800</span>
+                    <span class="text-[7.5px] text-kk-textMuted block">Varanasi &bull; Garima Weavers</span>
+                </div>
+
+                <div class="kk-panel-inner p-2 space-y-1.5 hover:border-kk-primary cursor-pointer">
+                    <div class="h-28 rounded-lg overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1606293926075-69a00dbfde81?w=200" class="w-full h-full object-cover"/>
+                        <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[7px] px-1.5 py-0.2 rounded">Brass</span>
+                    </div>
+                    <h4 class="font-serif text-[9.5px] font-bold text-kk-textDark truncate">Brass Diya Set</h4>
+                    <span class="text-[9px] font-bold text-kk-primary block">₹ 1,650</span>
+                    <span class="text-[7.5px] text-kk-textMuted block">Moradabad &bull; Kalam Artisan</span>
+                </div>
+
+                <div class="kk-panel-inner p-2 space-y-1.5 hover:border-kk-primary cursor-pointer">
+                    <div class="h-28 rounded-lg overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=200" class="w-full h-full object-cover"/>
+                        <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[7px] px-1.5 py-0.2 rounded">Folk Art</span>
+                    </div>
+                    <h4 class="font-serif text-[9.5px] font-bold text-kk-textDark truncate">Madhubani Painting</h4>
+                    <span class="text-[9px] font-bold text-kk-primary block">₹ 3,500</span>
+                    <span class="text-[7.5px] text-kk-textMuted block">Bihar &bull; Savita Devi</span>
+                </div>
+
+                <div class="kk-panel-inner p-2 space-y-1.5 hover:border-kk-primary cursor-pointer">
+                    <div class="h-28 rounded-lg overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=200" class="w-full h-full object-cover"/>
+                        <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[7px] px-1.5 py-0.2 rounded">Teak</span>
+                    </div>
+                    <h4 class="font-serif text-[9.5px] font-bold text-kk-textDark truncate">Wooden Carved Box</h4>
+                    <span class="text-[9px] font-bold text-kk-primary block">₹ 1,850</span>
+                    <span class="text-[7.5px] text-kk-textMuted block">Saharanpur &bull; Imran Crafts</span>
+                </div>
+
+                <div class="kk-panel-inner p-2 space-y-1.5 hover:border-kk-primary cursor-pointer">
+                    <div class="h-28 rounded-lg overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=200" class="w-full h-full object-cover"/>
+                        <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[7px] px-1.5 py-0.2 rounded">Kutch</span>
+                    </div>
+                    <h4 class="font-serif text-[9.5px] font-bold text-kk-textDark truncate">Embroidered Cushion</h4>
+                    <span class="text-[9px] font-bold text-kk-primary block">₹ 1,100</span>
+                    <span class="text-[7.5px] text-kk-textMuted block">Kutch &bull; Fatima Crafts</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
 
     <!-- ======================================================================= -->
     <!-- MASTER DEEP CHARCOAL FOOTER (Exact from Screenshot)                     -->
     <!-- ======================================================================= -->
-    <footer class="bg-kalakart-charcoal text-stone-300 py-6 px-6 mt-8 border-t border-stone-800">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+    <footer class="bg-kk-charcoal text-stone-300 py-6 px-6 mt-8 border-t border-stone-800">
+        <div class="max-w-[1720px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
             <div class="flex items-center space-x-3">
-                <div class="w-7 h-7 rounded-full bg-kalakart-primary flex items-center justify-center text-amber-200 text-xs">
-                    <i class="fas fa-seedling"></i>
+                <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-[#7A1C1C] to-[#5E1414] border border-amber-400/40 flex items-center justify-center">
+                    <svg viewBox="0 0 24 24" class="w-4 h-4 text-amber-200" fill="currentColor">
+                        <circle cx="12" cy="12" r="3.5" fill="#C87D32"/>
+                    </svg>
                 </div>
-                <span class="font-serif-display text-lg font-bold text-amber-100 tracking-widest uppercase">KALAKART</span>
+                <span class="font-cinzel text-lg font-bold text-amber-100 tracking-[0.18em] uppercase">KALAKART</span>
                 <span class="text-stone-500">|</span>
                 <span class="text-stone-400 font-medium">Craft &bull; Community &bull; Commerce &bull; Powered by AI</span>
             </div>
 
-            <div class="flex items-center space-x-4 text-[11px] text-stone-400">
-                <span>Ministry of Social Justice and Empowerment (MoSJE)</span>
-                <span>&bull;</span>
-                <span>Smart India Hackathon 2026 (PS 26090)</span>
+            <!-- Color Palette Circles from Mockup Footer -->
+            <div class="flex items-center space-x-3">
+                <span class="text-[10px] text-stone-400 uppercase font-bold">Palette:</span>
+                <div class="flex items-center space-x-1.5">
+                    <span class="w-3.5 h-3.5 rounded-full border border-white/20 bg-[#7A1C1C]" title="#7A1C1C Royal Crimson"></span>
+                    <span class="w-3.5 h-3.5 rounded-full border border-white/20 bg-[#C87D32]" title="#C87D32 Marigold Accent"></span>
+                    <span class="w-3.5 h-3.5 rounded-full border border-white/20 bg-[#F4EBDD]" title="#F4EBDD Parchment Card"></span>
+                    <span class="w-3.5 h-3.5 rounded-full border border-white/20 bg-[#EFE3CE]" title="#EFE3CE Recessed Well"></span>
+                    <span class="w-3.5 h-3.5 rounded-full border border-white/20 bg-[#1C1714]" title="#1C1714 Charcoal"></span>
+                </div>
+                <span class="text-stone-600">|</span>
+                <span class="text-[11px] text-stone-400">MoSJE &bull; Smart India Hackathon 2026 (PS 26090)</span>
             </div>
         </div>
     </footer>
 
-    <!-- ======================================================================= -->
-    <!-- JAVASCRIPT LOGIC                                                        -->
-    <!-- ======================================================================= -->
+    <!-- Interactive Scripts -->
     <script>
-        function setDisplayMode(mode) {
-            const btnPoster = document.getElementById('btnModePoster');
-            const btnApp = document.getElementById('btnModeApp');
-            
-            if (mode === 'poster') {
-                btnPoster.className = "px-3 py-1 rounded-full text-[11px] font-bold bg-kalakart-primary text-white shadow";
-                btnApp.className = "px-3 py-1 rounded-full text-[11px] font-semibold text-stone-300 hover:text-white";
-                document.getElementById('viewPoster').classList.remove('hidden');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                btnApp.className = "px-3 py-1 rounded-full text-[11px] font-bold bg-kalakart-primary text-white shadow";
-                btnPoster.className = "px-3 py-1 rounded-full text-[11px] font-semibold text-stone-300 hover:text-white";
-                alert("Interactive App Walkthrough Mode: You can now interact with all buttons, voice mics, and pricing algorithms directly!");
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
+        }
+
+        function runShieldCalc() {
+            const val = parseFloat(document.getElementById('shield-input').value) || 0;
+            const gauge = document.getElementById('shield-gauge');
+            const status = document.getElementById('shield-status');
+            const desc = document.getElementById('shield-desc');
+
+            if (val < 1000) {
+                gauge.className = "p-2 rounded-xl text-center space-y-1 bg-red-50 border border-red-200";
+                status.className = "text-red-700 font-bold text-[9px]";
+                status.innerText = "Too Low";
+                desc.innerText = `The offer of ₹${val} is ${(100 - (val/1200*100)).toFixed(0)}% below suggested price of ₹1,200.`;
+            } else if (val < 1200) {
+                gauge.className = "p-2 rounded-xl text-center space-y-1 bg-amber-50 border border-amber-200";
+                status.className = "text-amber-700 font-bold text-[9px]";
+                status.innerText = "Fair";
+                desc.innerText = `Offer of ₹${val} covers basic costs. Counter at ₹1,150 suggested.`;
+            } else {
+                gauge.className = "p-2 rounded-xl text-center space-y-1 bg-emerald-50 border border-emerald-200";
+                status.className = "text-emerald-700 font-bold text-[9px]";
+                status.innerText = "Profitable!";
+                desc.innerText = `Offer of ₹${val} provides healthy profit above fair-wage floor!`;
+            }
+        }
+
+        function triggerVoiceAudio() {
+            const text = "नमस्ते रामेश्वर जी! आपकी हस्तनिर्मित कलाकृति की लिस्टिंग तैयार हो रही है।";
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'hi-IN';
+                window.speechSynthesis.speak(utterance);
+            }
+            alert("🎙️ Kala Saathi Voice Active:\n\n" + text);
         }
     </script>
 </body>
