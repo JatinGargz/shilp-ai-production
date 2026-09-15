@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --kk-primary: #5C1A1A;
+  --kk-accent: #B85D2F;
+  --kk-camel: #B78B6A;
+  --kk-canvas: #F8F1E7;
+  --kk-text-dark: #2E1F17;
+  --kk-border: #E6D8C8;
+}
+
+body {
+  background-color: var(--kk-canvas);
+  color: var(--kk-text-dark);
+}
